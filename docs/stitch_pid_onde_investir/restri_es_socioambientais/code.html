@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PID - Restrições Socioambientais</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration (Design System) -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#adc7f8",
+                    "primary": "#001029",
+                    "secondary-fixed-dim": "#ffb4a3",
+                    "on-surface": "#1a1b1f",
+                    "on-primary-fixed-variant": "#2c4771",
+                    "tertiary-container": "#1b2828",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#bbc9c9",
+                    "surface": "#faf9fd",
+                    "on-tertiary-fixed-variant": "#3c4949",
+                    "on-primary-fixed": "#001b3d",
+                    "on-secondary-fixed-variant": "#8b1a00",
+                    "surface-dim": "#dad9dd",
+                    "tertiary": "#071313",
+                    "on-surface-variant": "#43474e",
+                    "secondary-container": "#de3002",
+                    "background": "#faf9fd",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f3033",
+                    "on-background": "#1a1b1f",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f4f3f7",
+                    "surface-container-high": "#e9e7ec",
+                    "surface-container": "#eeedf1",
+                    "on-tertiary-container": "#828f90",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#03254d",
+                    "inverse-on-surface": "#f1f0f4",
+                    "on-tertiary-fixed": "#111e1e",
+                    "surface-variant": "#e3e2e6",
+                    "error": "#ba1a1a",
+                    "secondary": "#b22400",
+                    "on-primary-container": "#738dbb",
+                    "on-secondary-fixed": "#3d0600",
+                    "surface-tint": "#455f8a",
+                    "outline": "#74777f",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#adc7f8",
+                    "surface-bright": "#faf9fd",
+                    "secondary-fixed": "#ffdad2",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d6e3ff",
+                    "tertiary-fixed": "#d7e5e5",
+                    "surface-container-highest": "#e3e2e6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "xs": "4px",
+                    "xl": "40px",
+                    "margin": "32px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #faf9fd; } /* bg-background */
+    </style>
+</head>
+<body class="antialiased text-on-surface">
+<!-- Shared Component: SideNavBar -->
+<nav class="bg-surface dark:bg-on-surface docked h-full w-72 left-0 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col fixed left-0 top-0 h-screen z-50 py-lg">
+<!-- Header -->
+<div class="px-md mb-xl flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary tracking-tight">PID</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-tight mt-xs">Plataforma Interativa de Descarbonização</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex flex-col gap-sm px-sm flex-grow">
+<!-- Inactive -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">database</span>
+<span class="font-body-md text-body-md">PID Data</span>
+</a>
+<!-- Active (Intent Match: Analyzing investment zones) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-surface-container-low text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary opacity-80 duration-200" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-body-md text-body-md">Onde Investir?</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">analytics</span>
+<span class="font-body-md text-body-md">Reports</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">cloud_done</span>
+<span class="font-body-md text-body-md">Data Sources</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all group mt-auto" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">help</span>
+<span class="font-body-md text-body-md">Help</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="px-md mt-lg">
+<button class="w-full py-sm px-md rounded-full bg-surface border-2 border-primary text-primary font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- Shared Component: TopAppBar -->
+<header class="bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16 ml-72 fixed z-40 transition-all duration-300">
+<!-- Brand / Product Name -->
+<div class="flex items-center">
+<h2 class="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary">Decarbonization Intelligence</h2>
+</div>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors py-4" href="#">Dashboard</a>
+<!-- Active State -->
+<a class="font-label-md text-label-md text-secondary font-bold border-b-2 border-secondary pb-1 py-4" href="#">Regional Map</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors py-4" href="#">Policy Feed</a>
+</nav>
+<!-- Trailing Actions & Search (Right aligned) -->
+<div class="flex items-center gap-md">
+<!-- Search -->
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-xl pr-sm py-1.5 bg-surface-container-low border border-outline-variant rounded-full font-body-md text-label-sm text-on-surface focus:border-primary focus:ring-0 w-64 transition-all" placeholder="Search parameters..." type="text"/>
+</div>
+<!-- Actions -->
+<button class="hidden lg:block font-label-md text-label-md text-primary hover:underline px-sm">Contact Support</button>
+<button class="bg-secondary text-on-primary font-label-md text-label-md px-md py-1.5 rounded-full hover:bg-secondary-container transition-colors scale-95 duration-100 shadow-sm">Invest Now</button>
+<!-- Icon Actions -->
+<div class="flex items-center gap-xs ml-sm border-l border-outline-variant pl-md">
+<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 mt-16 p-margin bg-background min-h-screen">
+<!-- Page Header -->
+<div class="mb-lg max-w-4xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-sm">Restrições socioambientais e fundiárias</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Avaliação técnica de territórios protegidos, áreas de embargo e zonas de restrição legal para identificação de riscos associados a projetos de descarbonização e uso da terra.
+            </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter mb-xl">
+<!-- Map Container (Span 8) -->
+<div class="xl:col-span-8 bg-surface rounded-xl border border-outline-variant shadow-sm overflow-hidden relative flex flex-col min-h-[600px]">
+<!-- Map Header Bar -->
+<div class="bg-primary px-md py-sm flex justify-between items-center z-10">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-primary text-[20px]">map</span>
+<span class="font-label-md text-label-md text-on-primary">Visualizador Geoespacial Regional</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-sm text-label-sm text-inverse-primary bg-primary-container px-2 py-1 rounded">Camadas Ativas: 3</span>
+</div>
+</div>
+<!-- Simulated Map Canvas -->
+<div class="flex-grow relative bg-tertiary-fixed-dim bg-opacity-20" data-alt="A highly detailed, professional satellite map view of a vast forest region in Brazil, displayed on a sleek digital dashboard interface. The map features precise, semi-transparent geometric polygon overlays indicating various environmental data zones. The lighting is bright and modern, adhering to a light-mode aesthetic with a sophisticated palette of deep navy blues, stark whites, and distinct, vibrant accents of warning red and deep green to highlight restricted areas. The overall mood is analytical, authoritative, and technologically advanced." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfrykbWnIhGSOn7opSgehEQB6JAX2ORF3tdHPi-4XiGK_3rkT4IlVc8IVdFE7yTQGBLHXdxUuOd6vu-iIychxBcSmpjUVqqYEx5J5bU9Kh2C2vibX4nhVdt4lNHv2xeECCcbDtnQs9SvazipTuYhsa8dLDTce9wC2p4l4LuQVibeiZ7ohMtD7XHp5zEe_J5zgpgN54CV-5TGCPcwiW65UOGKq669FV8ILz_-0_Xzw88vltythT9YClBGKtjlTKNnhiLgzxSTqo5iB5'); background-size: cover; background-position: center;">
+<!-- Faded overlay to ensure contrast for UI elements -->
+<div class="absolute inset-0 bg-surface bg-opacity-40 backdrop-blur-[2px]"></div>
+<!-- Simulated Data Polygons (CSS shapes for visual effect) -->
+<div class="absolute top-1/4 left-1/3 w-64 h-48 border-2 border-secondary-container bg-secondary-container bg-opacity-20 rounded-tl-3xl rounded-br-full rotate-12 flex items-center justify-center backdrop-blur-sm">
+<span class="font-label-sm text-label-sm text-secondary-container font-bold bg-surface bg-opacity-80 px-2 py-1 rounded shadow-sm">TI Yanomami (Sobreposição)</span>
+</div>
+<div class="absolute bottom-1/4 right-1/4 w-40 h-40 border-2 border-tertiary-fixed-dim bg-tertiary-fixed-dim bg-opacity-30 rounded-full flex items-center justify-center"></div>
+<div class="absolute top-1/2 left-1/2 w-32 h-32 border-2 border-error bg-error bg-opacity-20 rounded shadow-lg flex items-center justify-center -translate-x-1/2 -translate-y-1/2 backdrop-blur-sm">
+<span class="material-symbols-outlined text-error shadow-sm bg-surface rounded-full p-1">warning</span>
+</div>
+<!-- Map Controls -->
+<div class="absolute top-md right-md flex flex-col gap-xs bg-surface border border-outline-variant rounded-lg shadow-sm p-xs z-20">
+<button class="p-1 hover:bg-surface-container-high rounded text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">add</span></button>
+<div class="w-full h-px bg-outline-variant opacity-50"></div>
+<button class="p-1 hover:bg-surface-container-high rounded text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">remove</span></button>
+</div>
+<div class="absolute top-md left-md bg-surface border border-outline-variant rounded-lg shadow-sm p-xs z-20 flex flex-col gap-xs">
+<button class="p-1 bg-surface-container-high rounded text-primary transition-colors" title="Camadas"><span class="material-symbols-outlined text-[20px]">layers</span></button>
+<button class="p-1 hover:bg-surface-container-high rounded text-on-surface-variant transition-colors" title="Filtros"><span class="material-symbols-outlined text-[20px]">filter_list</span></button>
+</div>
+<!-- Legend -->
+<div class="absolute bottom-md left-md bg-surface border border-outline-variant rounded-lg shadow-md p-md z-20 w-64">
+<h3 class="font-label-md text-label-md text-primary font-bold mb-sm flex items-center gap-xs border-b border-surface-variant pb-xs">
+<span class="material-symbols-outlined text-[16px]">list</span> Legenda Ativa
+                        </h3>
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-sm">
+<div class="w-4 h-4 rounded border-2 border-secondary-container bg-secondary-container bg-opacity-40 shrink-0"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Terras Indígenas</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-4 h-4 rounded border-2 border-tertiary-fixed-dim bg-tertiary-fixed-dim bg-opacity-50 shrink-0"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Unidades de Conservação</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="w-4 h-4 rounded border-2 border-error bg-error bg-opacity-30 shrink-0"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Áreas Embargadas</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Lateral Panel (Span 4) -->
+<div class="xl:col-span-4 flex flex-col h-full">
+<div class="bg-surface rounded-xl border border-outline-variant shadow-sm flex flex-col h-full overflow-hidden">
+<!-- Panel Header -->
+<div class="p-lg border-b border-surface-variant bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                            Classificação da área
+                        </h2>
+<p class="font-body-md text-label-sm text-on-surface-variant mt-xs">
+                            Síntese da viabilidade territorial baseada nas coordenadas selecionadas.
+                        </p>
+</div>
+<!-- Status List -->
+<div class="p-md flex flex-col gap-md flex-grow bg-surface-container-lowest">
+<!-- Status: Green (Inactive/Contextual) -->
+<div class="p-md rounded-lg border border-surface-variant bg-surface-container-low flex gap-md items-start opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+<div class="mt-xs shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center border border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-[20px]">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold">Oportunidade (Livre)</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant mt-xs leading-relaxed">
+                                    Área com baixo risco, sem sobreposições identificadas com territórios protegidos na base de dados atual.
+                                </p>
+</div>
+</div>
+<!-- Status: Yellow (Inactive/Contextual) -->
+<div class="p-md rounded-lg border border-surface-variant bg-surface-container-low flex gap-md items-start opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+<div class="mt-xs shrink-0 w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center border border-outline">
+<span class="material-symbols-outlined text-on-surface text-[20px]">search</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold">Due diligence (Atenção)</h4>
+<p class="font-body-md text-label-sm text-on-surface-variant mt-xs leading-relaxed">
+                                    Proximidade (&lt; 10km) com zonas sensíveis ou dados pendentes de validação primária. Requer análise técnica in loco.
+                                </p>
+</div>
+</div>
+<!-- Status: Red (Active Target State) -->
+<div class="p-md rounded-lg border border-error bg-error-container flex gap-md items-start shadow-sm relative overflow-hidden mt-sm">
+<!-- Indicator line -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<div class="mt-xs shrink-0 w-8 h-8 rounded-full bg-error flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-error text-[20px]">priority_high</span>
+</div>
+<div class="w-full">
+<div class="flex justify-between items-start w-full">
+<h4 class="font-label-md text-label-md text-on-error-container font-extrabold">Restrição Crítica</h4>
+<span class="bg-surface text-error border border-error px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Alto Risco</span>
+</div>
+<p class="font-body-md text-body-md text-on-error-container mt-sm leading-relaxed border-b border-error border-opacity-20 pb-sm mb-sm">
+<strong class="font-semibold">Área com sobreposição ou proximidade crítica com território protegido.</strong> Não recomendada para desenvolvimento ou estruturação de projetos devido ao passivo socioambiental e impedimentos legais severos.
+                                </p>
+<!-- Tags for specific violations -->
+<div class="flex flex-wrap gap-xs">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-surface border border-outline-variant text-label-sm font-label-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                                        Sobreposição TI (14%)
+                                    </span>
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded bg-surface border border-outline-variant text-label-sm font-label-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                        Embargo Ibama Ativo
+                                    </span>
+</div>
+<button class="mt-md w-full py-1.5 border border-error text-error font-label-md text-label-sm rounded hover:bg-error hover:text-on-error transition-colors flex items-center justify-center gap-xs bg-surface">
+<span class="material-symbols-outlined text-[16px]">summarize</span> Baixar Laudo Completo
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Definition Cards Row -->
+<div class="mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Glossário de Restrições Institucionais</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Terras Indígenas -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low border border-surface-variant flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary-container text-[28px]">diversity_3</span>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary font-bold mb-sm">Terras Indígenas</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Porções do território nacional habitadas por povos indígenas, essenciais para a preservação de sua cultura e subsistência. A Constituição Federal garante o direito originário sobre essas terras, tornando-as inalienáveis e de posse permanente, configurando restrição absoluta para terceiros.
+                    </p>
+</div>
+<!-- Card 2: Unidades de Conservação -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low border border-surface-variant flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[28px] text-primary-container">park</span>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary font-bold mb-sm">Unidades de Conservação</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Espaços territoriais legalmente instituídos pelo poder público, com características naturais relevantes, visando a conservação da biodiversidade. Dividem-se em grupos de Proteção Integral (restrição total de uso direto) e Uso Sustentável, regidas por planos de manejo específicos.
+                    </p>
+</div>
+<!-- Card 3: APP / Reserva Legal -->
+<div class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm hover:shadow-md transition-shadow flex flex-col">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low border border-surface-variant flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-primary-container text-[28px]">forest</span>
+</div>
+<h4 class="font-headline-md text-body-lg text-primary font-bold mb-sm">APP &amp; Reserva Legal</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        As <strong>Áreas de Preservação Permanente (APPs)</strong> protegem recursos hídricos e a estabilidade geológica, sendo intocáveis. A <strong>Reserva Legal</strong> é o percentual do imóvel rural que deve manter vegetação nativa preservada, essencial para o uso econômico sustentável em conformidade com o Código Florestal.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

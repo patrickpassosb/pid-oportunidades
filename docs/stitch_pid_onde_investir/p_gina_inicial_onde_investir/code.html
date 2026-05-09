@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PID - Onde Investir?</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#adc7f8",
+                    "primary": "#001029",
+                    "secondary-fixed-dim": "#ffb4a3",
+                    "on-surface": "#1a1b1f",
+                    "on-primary-fixed-variant": "#2c4771",
+                    "tertiary-container": "#1b2828",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c4c6d0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#bbc9c9",
+                    "surface": "#faf9fd",
+                    "on-tertiary-fixed-variant": "#3c4949",
+                    "on-primary-fixed": "#001b3d",
+                    "on-secondary-fixed-variant": "#8b1a00",
+                    "surface-dim": "#dad9dd",
+                    "tertiary": "#071313",
+                    "on-surface-variant": "#43474e",
+                    "secondary-container": "#de3002",
+                    "background": "#faf9fd",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f3033",
+                    "on-background": "#1a1b1f",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f4f3f7",
+                    "surface-container-high": "#e9e7ec",
+                    "surface-container": "#eeedf1",
+                    "on-tertiary-container": "#828f90",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#03254d",
+                    "inverse-on-surface": "#f1f0f4",
+                    "on-tertiary-fixed": "#111e1e",
+                    "surface-variant": "#e3e2e6",
+                    "error": "#ba1a1a",
+                    "secondary": "#b22400",
+                    "on-primary-container": "#738dbb",
+                    "on-secondary-fixed": "#3d0600",
+                    "surface-tint": "#455f8a",
+                    "outline": "#74777f",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#adc7f8",
+                    "surface-bright": "#faf9fd",
+                    "secondary-fixed": "#ffdad2",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#d6e3ff",
+                    "tertiary-fixed": "#d7e5e5",
+                    "surface-container-highest": "#e3e2e6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "xs": "4px",
+                    "xl": "40px",
+                    "margin": "32px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<nav class="bg-surface flex flex-col fixed left-0 top-0 h-screen z-50 py-lg docked w-72 border-r border-outline-variant">
+<div class="px-lg pb-md mb-md border-b border-outline-variant flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">PID</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Plataforma Interativa de Descarbonização</p>
+</div>
+</div>
+<ul class="flex-1 overflow-y-auto py-sm">
+<li>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-label-md text-label-md">PID Data</span>
+</a>
+</li>
+<li class="relative">
+<a class="flex items-center gap-md px-lg py-md bg-surface-container-low text-secondary font-bold border-r-4 border-secondary opacity-80 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-md text-label-md">Onde Investir?</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+<span class="font-label-md text-label-md">Data Sources</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+</li>
+</ul>
+<div class="px-lg mt-auto pt-md">
+<button class="w-full py-sm border-2 border-primary text-primary rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface flex justify-between items-center w-full px-margin h-16 ml-72 border-b border-outline-variant docked top-0 z-40 fixed">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-primary">Decarbonization Intelligence</span>
+<nav class="hidden md:flex gap-md ml-lg">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-sm" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-sm" href="#">Regional Map</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-sm" href="#">Policy Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-xl pr-sm py-xs rounded-full border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-0 text-sm w-48" placeholder="Search..." type="text"/>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline decoration-2 underline-offset-4">Contact Support</button>
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-full font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors scale-95 duration-100">Invest Now</button>
+<div class="flex items-center gap-sm border-l border-outline-variant pl-md ml-sm">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-72 pt-20 p-margin">
+<!-- Header Section -->
+<section class="mb-xl max-w-5xl">
+<h2 class="font-display-lg text-display-lg text-primary mb-sm">Onde investir na transição energética?</h2>
+<p class="font-headline-md text-headline-md text-on-surface-variant mb-md max-w-4xl">Identifique regiões com maior potencial técnico, econômico e socioambiental para projetos de energia limpa.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant border-l-4 border-outline-variant pl-md py-xs">
+                A ferramenta cruza potencial energético, infraestrutura, retorno estimado e restrições socioambientais para apoiar decisões preliminares de investimento.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main CTA Card (Left Col) -->
+<div class="col-span-1 lg:col-span-8 flex flex-col gap-gutter">
+<!-- Primary Action & Map Preview -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden flex flex-col md:flex-row relative shadow-[0_4px_12px_rgba(0,16,41,0.04)]">
+<div class="p-lg flex flex-col justify-center w-full md:w-1/2 z-10 bg-surface-container-lowest/90 backdrop-blur-sm">
+<div class="inline-flex items-center gap-xs bg-tertiary-fixed text-on-tertiary-fixed px-sm py-unit rounded DEFAULT font-label-sm text-label-sm mb-md w-max">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+                            Módulo de Inteligência
+                        </div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-sm">Inicie sua prospecção</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Acesse o mapa interativo e combine camadas de dados para descobrir as zonas mais viáveis para o seu portfólio de descarbonização.</p>
+<button class="bg-secondary text-on-secondary px-lg py-md rounded-full font-label-md text-label-md hover:bg-secondary-container transition-colors w-max flex items-center gap-sm shadow-sm">
+                            Iniciar análise
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="w-full md:w-1/2 min-h-[300px] bg-surface-variant relative overflow-hidden">
+<!-- Abstract Map Representation -->
+<div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply" data-alt="A highly detailed, stylized topographical map of Brazil rendered in a technical, corporate modernism style. The map uses a sophisticated color palette of crisp whites, soft light greenish-grays, and deep navy blues. The state of Roraima is vividly highlighted in a controlled, urgent primary orange, signifying an active area of interest or high opportunity. The overall lighting is bright and airy, typical of a high-end data visualization dashboard in light mode." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPNHTZLMBvyJgNYxOW88Jjm5pbGgcD_9rE9H6bgv5F-ukmaWX3Efj9CHpguGwwFAcnCOMowioD5H0yPenw7b80Mcg-eKP-hFNmEafYvKgDEkMbVsWrOi3in40DwvvneSRak6YCxEfLYiGWE-VOEol7_1MkIIAHiQLOdmglsnMbVHSeL_3AvYpCVkBKGuj6tBn0zdOBJ8iGsm_zri_uXbFSdgb8IEk7hkq1JCwyXVlnz0urdEZMW2-WOw3iRUwSxgFTjRJdppfyi22v');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/50 to-transparent w-1/2 left-0 hidden md:block"></div>
+<!-- Overlay Pin -->
+<div class="absolute top-1/3 right-1/3 flex flex-col items-center">
+<div class="w-4 h-4 bg-secondary rounded-full animate-pulse ring-4 ring-secondary/30"></div>
+<div class="mt-sm bg-surface-container-lowest border border-outline-variant px-sm py-unit rounded shadow-sm">
+<span class="font-label-sm text-label-sm text-primary font-bold">Roraima</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Context Card -->
+<div class="bg-surface-container-low rounded-lg p-md border border-outline-variant/50 flex items-start gap-md">
+<div class="p-sm bg-primary text-on-primary rounded-full mt-xs">
+<span class="material-symbols-outlined">info</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary font-bold mb-xs">Análise atual disponível: Roraima</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">O projeto piloto contempla o estado de Roraima, integrando dados da rede isolada, radiação solar, regime de ventos e mapeamento de terras indígenas. Novas regiões serão adicionadas ao longo do trimestre.</p>
+</div>
+</div>
+</div>
+<!-- Metrics Container (Right Col) -->
+<div class="col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-md">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-[0_2px_8px_rgba(0,16,41,0.02)] flex items-center gap-md group hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div>
+<span class="block font-headline-md text-headline-md text-primary">1</span>
+<span class="font-label-md text-label-md text-on-surface-variant">estado disponível</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-[0_2px_8px_rgba(0,16,41,0.02)] flex items-center gap-md group hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 rounded bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">layers</span>
+</div>
+<div>
+<span class="block font-headline-md text-headline-md text-primary">5</span>
+<span class="font-label-md text-label-md text-on-surface-variant">camadas de análise</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-[0_2px_8px_rgba(0,16,41,0.02)] flex items-center gap-md group hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">show_chart</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-primary font-bold mb-unit">Score de oportunidade</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-sm">Ranking integrado de viabilidade</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest p-md rounded-lg border border-outline-variant shadow-[0_2px_8px_rgba(0,16,41,0.02)] flex items-center gap-md group hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-primary font-bold mb-unit">Relatório executivo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-sm">Geração automática de parecer</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

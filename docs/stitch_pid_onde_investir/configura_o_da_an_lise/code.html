@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Configuração da Análise - Decarbonization Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#adc7f8",
+                      "primary": "#001029",
+                      "secondary-fixed-dim": "#ffb4a3",
+                      "on-surface": "#1a1b1f",
+                      "on-primary-fixed-variant": "#2c4771",
+                      "tertiary-container": "#1b2828",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c4c6d0",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#bbc9c9",
+                      "surface": "#faf9fd",
+                      "on-tertiary-fixed-variant": "#3c4949",
+                      "on-primary-fixed": "#001b3d",
+                      "on-secondary-fixed-variant": "#8b1a00",
+                      "surface-dim": "#dad9dd",
+                      "tertiary": "#071313",
+                      "on-surface-variant": "#43474e",
+                      "secondary-container": "#de3002",
+                      "background": "#faf9fd",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#2f3033",
+                      "on-background": "#1a1b1f",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f4f3f7",
+                      "surface-container-high": "#e9e7ec",
+                      "surface-container": "#eeedf1",
+                      "on-tertiary-container": "#828f90",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#03254d",
+                      "inverse-on-surface": "#f1f0f4",
+                      "on-tertiary-fixed": "#111e1e",
+                      "surface-variant": "#e3e2e6",
+                      "error": "#ba1a1a",
+                      "secondary": "#b22400",
+                      "on-primary-container": "#738dbb",
+                      "on-secondary-fixed": "#3d0600",
+                      "surface-tint": "#455f8a",
+                      "outline": "#74777f",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#adc7f8",
+                      "surface-bright": "#faf9fd",
+                      "secondary-fixed": "#ffdad2",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#d6e3ff",
+                      "tertiary-fixed": "#d7e5e5",
+                      "surface-container-highest": "#e3e2e6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row antialiased">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-screen z-50 py-lg bg-surface dark:bg-on-surface w-72 border-r border-outline-variant dark:border-outline">
+<div class="px-lg pb-lg mb-sm border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-sm">
+<span aria-label="PID Logo Circular Symbol" class="material-symbols-outlined text-[32px] text-primary dark:text-inverse-primary">rocket_launch</span>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary">PID</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Plataforma Interativa de Descarbonização</p>
+</div>
+</div>
+</div>
+<ul class="flex-1 overflow-y-auto px-md space-y-sm mt-md">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">database</span>
+                    PID Data
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary bg-surface-container-low opacity-80 duration-200 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+                    Onde Investir?
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                    Reports
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">cloud_done</span>
+                    Data Sources
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help
+                </a>
+</li>
+</ul>
+<div class="p-lg mt-auto">
+<button class="w-full flex items-center justify-center gap-sm px-md py-sm bg-primary text-on-primary rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined">download</span>
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin h-16 ml-72 bg-surface dark:bg-on-surface border-b border-outline-variant dark:border-outline fixed top-0 z-40">
+<div class="flex items-center gap-lg">
+<h2 class="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary">Decarbonization Intelligence</h2>
+<nav class="hidden lg:flex gap-md ml-lg">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 font-label-md text-label-md" href="#">Regional Map</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-md text-label-md" href="#">Policy Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary w-64" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:scale-95 duration-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:scale-95 duration-100">
+<span aria-label="User Profile" class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<div class="h-6 w-px bg-outline-variant mx-sm hidden sm:block"></div>
+<div class="flex items-center gap-sm hidden sm:flex">
+<button class="px-4 py-2 font-label-md text-label-md text-primary border-2 border-primary rounded-full hover:bg-surface-container transition-colors">Contact Support</button>
+<button class="px-4 py-2 font-label-md text-label-md bg-secondary text-on-secondary rounded-full hover:bg-secondary-container transition-colors shadow-sm">Invest Now</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 mt-16 p-margin overflow-y-auto">
+<div class="max-w-6xl mx-auto">
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-sm">Configure sua análise</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Defina os parâmetros para identificar as melhores oportunidades de investimento em Roraima.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Left Column: Form -->
+<div class="lg:col-span-2 space-y-lg">
+<div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant shadow-[0_2px_4px_rgba(0,16,41,0.04)]">
+<form class="space-y-lg">
+<!-- Static Pre-selected Fields -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                                        Estado
+                                    </label>
+<div class="px-md py-sm bg-surface border border-outline-variant rounded-lg text-primary font-body-md text-body-md flex items-center justify-between opacity-70 cursor-not-allowed">
+                                        Roraima
+                                        <span class="material-symbols-outlined text-outline">lock</span>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">solar_power</span>
+                                        Tipo de projeto
+                                    </label>
+<div class="px-md py-sm bg-surface border border-outline-variant rounded-lg text-primary font-body-md text-body-md flex items-center justify-between opacity-70 cursor-not-allowed">
+                                        Usina solar fotovoltaica
+                                        <span class="material-symbols-outlined text-outline">lock</span>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- Interactive Fields -->
+<div class="space-y-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Parâmetros do Projeto</h3>
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-primary">Capacidade estimada</label>
+<div class="flex flex-wrap gap-sm">
+<label class="cursor-pointer">
+<input class="peer sr-only" name="capacity" type="radio" value="1"/>
+<div class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors font-body-md text-body-md">
+                                                1 MW
+                                            </div>
+</label>
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="capacity" type="radio" value="5"/>
+<div class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors font-body-md text-body-md">
+                                                5 MW
+                                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="capacity" type="radio" value="10"/>
+<div class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors font-body-md text-body-md">
+                                                10 MW
+                                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="capacity" type="radio" value="30"/>
+<div class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors font-body-md text-body-md">
+                                                30 MW
+                                            </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="capacity" type="radio" value="custom"/>
+<div class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors font-body-md text-body-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                                Personalizado
+                                            </div>
+</label>
+</div>
+</div>
+<div class="space-y-sm mt-md">
+<label class="font-label-md text-label-md text-primary">Perfil do usuário</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+<label class="relative flex cursor-pointer rounded-lg border bg-surface p-4 border-outline-variant hover:border-primary hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input checked="" class="peer sr-only" name="profile" type="radio" value="investidor"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<span class="font-body-md text-body-md text-primary font-medium">Investidor privado</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border bg-surface p-4 border-outline-variant hover:border-primary hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="peer sr-only" name="profile" type="radio" value="governo"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Governo</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border bg-surface p-4 border-outline-variant hover:border-primary hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="peer sr-only" name="profile" type="radio" value="industria"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">factory</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Indústria</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border bg-surface p-4 border-outline-variant hover:border-primary hover:bg-surface-container-low transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary-fixed">
+<input class="peer sr-only" name="profile" type="radio" value="comunidade"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">holiday_village</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Comunidade isolada</span>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-sm mt-md">
+<label class="font-label-md text-label-md text-primary">Objetivo principal</label>
+<select class="w-full bg-surface border border-outline-variant rounded-lg px-md py-3 text-primary font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none cursor-pointer">
+<option value="payback">Menor payback</option>
+<option value="impacto">Maior impacto social</option>
+<option value="risco">Menor risco socioambiental</option>
+<option value="descarbonizacao">Maior potencial de descarbonização</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-on-surface-variant mt-[104px] mr-lg">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+<div class="pt-md flex justify-end">
+<button class="bg-[#FA441A] text-white font-label-md text-label-md px-xl py-3 rounded-full hover:bg-secondary transition-colors shadow-md flex items-center gap-sm" type="button">
+<span class="material-symbols-outlined">map</span>
+                                    Gerar mapa de oportunidades
+                                </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Column: Sidebar Card -->
+<div class="lg:col-span-1">
+<div class="bg-[#F4F7F7] p-lg rounded-xl border border-[#BECCCC] sticky top-24">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary text-[28px]">policy</span>
+<h3 class="font-headline-md text-headline-md text-primary">O que será analisado?</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Nosso modelo de inteligência cruza múltiplas camadas de dados para garantir a viabilidade do projeto.</p>
+<ul class="space-y-md">
+<li class="flex items-start gap-sm">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[14px]">sunny</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">Potencial solar</span>
+<span class="font-body-md text-sm text-on-surface-variant block">Radiação GHI e horas de sol pleno.</span>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[14px]">electric_bolt</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">Proximidade de rede elétrica</span>
+<span class="font-body-md text-sm text-on-surface-variant block">Distância de subestações e linhas de transmissão.</span>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[14px]">commute</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">Infraestrutura e logística</span>
+<span class="font-body-md text-sm text-on-surface-variant block">Acesso rodoviário e condições de terreno.</span>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[14px]">nature_people</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">Restrições socioambientais</span>
+<span class="font-body-md text-sm text-on-surface-variant block">Áreas de conservação e terras indígenas.</span>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[14px]">trending_up</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-primary block">Estimativa de investimento e retorno</span>
+<span class="font-body-md text-sm text-on-surface-variant block">CAPEX, OPEX e projeção de payback.</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- NavigationDrawer (Hidden by default, standard side nav is used for web view) -->
+<!-- Kept in markup per JSON execution mandate, but standard navigation is primary -->
+<div class="hidden fixed right-0 top-0 h-screen z-40 flex-col p-md bg-surface-container-highest dark:bg-surface-container w-80 shadow-lg border-l border-outline-variant shadow-md Transition-transform duration-300 ease-in-out">
+<div class="mb-lg">
+<div class="flex items-center gap-sm mb-md">
+<span aria-label="Copilot Icon" class="material-symbols-outlined text-primary dark:text-inverse-primary text-[32px]">robot_2</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary">PID Assistant</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Copilot Analytical Intelligence</p>
+</div>
+</div>
+</div>
+<ul class="space-y-sm flex-1">
+<li>
+<a class="flex items-center gap-md bg-primary text-on-primary rounded-lg p-2 font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+                    Current Analysis
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant hover:text-primary p-2 hover:bg-surface-container-high rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">warning</span>
+                    Risk Assessment
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-surface-variant hover:text-primary p-2 hover:bg-surface-container-high rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">forum</span>
+                    Data Chat
+                </a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-sm px-md py-sm bg-primary text-on-primary rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors font-label-md text-label-md">
+                Generate Brief
+            </button>
+</div>
+</div>
+</body></html>
