@@ -1,15 +1,24 @@
-# frontend
+# PID — Onde Investir?
 
-To install dependencies:
+Frontend Next.js + React + TypeScript para a demo “Onde Investir?” da PID.
+
+## Rodar localmente
+
+Instale dependências com Bun:
 
 ```bash
 bun install
 ```
 
-To run:
+Suba o servidor de desenvolvimento:
 
 ```bash
-bun run index.ts
+bun dev
 ```
 
-This project was created using `bun init` in bun v1.3.12. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+Valide build e tipos:
+
+```bash
+bun run typecheck
+bun run build
+```
