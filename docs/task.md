@@ -4,4 +4,4 @@
 - [x] Tarefa 4: Exportação de PDF (`relatorio`)
 - [ ] Tarefa 5: Simulação Interativa (Sliders em `/simulacao`)
 - [ ] Tarefa 6: Visualização de Dados (Gráficos)
-- [ ] Tarefa 7: Mapa Interativo (`leaflet`)
+- [x] Tarefa 7: Mapa Interativo (`leaflet`)

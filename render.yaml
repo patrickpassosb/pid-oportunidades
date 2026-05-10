@@ -10,3 +10,5 @@ services:
         value: 3.12.0
       - key: ENVIRONMENT
         value: production
+      - key: CORS_ALLOW_ORIGINS
+        value: https://pid-six.vercel.app,https://pid-oportunidades.vercel.app

@@ -20,6 +20,7 @@ export type Region = {
     x: number;
     y: number;
   };
+  latLng: [number, number];
   scoreBreakdown: Array<{
     label: string;
     value: number;
@@ -45,6 +46,7 @@ export const regions: Region[] = [
     annualGeneration: "8.700 MWh/ano",
     estimatedRevenue: "R$ 2,7 milhões/ano",
     coordinates: { x: 47, y: 31 },
+    latLng: [2.63, -60.79],
     scoreBreakdown: [
       { label: "Potencial solar", value: 88 },
       { label: "Infraestrutura elétrica", value: 82 },
@@ -79,6 +81,7 @@ export const regions: Region[] = [
     annualGeneration: "8.300 MWh/ano",
     estimatedRevenue: "R$ 2,5 milhões/ano",
     coordinates: { x: 58, y: 71 },
+    latLng: [0.9461, -60.4197],
     scoreBreakdown: [
       { label: "Potencial solar", value: 84 },
       { label: "Infraestrutura elétrica", value: 68 },
@@ -113,6 +116,7 @@ export const regions: Region[] = [
     annualGeneration: "7.900 MWh/ano",
     estimatedRevenue: "R$ 2,3 milhões/ano",
     coordinates: { x: 49, y: 51 },
+    latLng: [1.8308, -61.1319],
     scoreBreakdown: [
       { label: "Potencial solar", value: 76 },
       { label: "Infraestrutura elétrica", value: 62 },
@@ -147,6 +151,7 @@ export const regions: Region[] = [
     annualGeneration: "7.100 MWh/ano",
     estimatedRevenue: "R$ 2,0 milhões/ano",
     coordinates: { x: 43, y: 16 },
+    latLng: [4.4797, -61.1486],
     scoreBreakdown: [
       { label: "Potencial solar", value: 68 },
       { label: "Infraestrutura elétrica", value: 49 },

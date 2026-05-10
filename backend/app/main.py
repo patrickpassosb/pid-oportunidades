@@ -1,4 +1,5 @@
 import logging
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -18,6 +19,31 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 logger = logging.getLogger(__name__)
+
+
+def _get_allowed_origins() -> list[str]:
+    """Return explicit frontend origins allowed to call the API."""
+    defaults = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:3001",
+        "https://pid-six.vercel.app",
+        "https://pid-oportunidades.vercel.app",
+    ]
+    configured = os.getenv("CORS_ALLOW_ORIGINS")
+    if not configured:
+        return defaults
+
+    return [
+        origin.strip().rstrip("/")
+        for origin in configured.split(",")
+        if origin.strip()
+    ]
+
+
+def _get_allowed_origin_regex() -> str | None:
+    """Return an optional regex for preview deployments."""
+    return os.getenv("CORS_ALLOW_ORIGIN_REGEX")
 
 
 # ---------------------------------------------------------------------------
@@ -53,13 +79,8 @@ app = FastAPI(
 # ---------------------------------------------------------------------------
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:3001",
-        "https://pid-oportunidades.vercel.app",
-        "https://*.vercel.app",
-    ],
+    allow_origins=_get_allowed_origins(),
+    allow_origin_regex=_get_allowed_origin_regex(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

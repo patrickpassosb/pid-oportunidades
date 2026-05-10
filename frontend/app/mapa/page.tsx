@@ -1,20 +1,17 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-import { RegionCard } from "@/components/dashboard/RegionCard";
 import { AppShell } from "@/components/layout/AppShell";
-import { LayerToggle } from "@/components/map/LayerToggle";
-import { MapMock } from "@/components/map/MapMock";
+import { MapPageClient } from "@/components/map/MapPageClient";
 import { Button } from "@/components/ui/Button";
-import { MetricCard } from "@/components/ui/MetricCard";
-import { analysisLayers } from "@/data/layers";
+import { regions as mapRegions } from "@/data/regions";
 import { getInvestmentRegions } from "@/lib/api";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { DataQualityBadge } from "@/components/ui/DataQualityBadge";
 
 export default async function MapPage() {
   const data = await getInvestmentRegions();
-  
+
   if (!data || !data.regions) {
     return (
       <AppShell>
@@ -26,7 +23,7 @@ export default async function MapPage() {
   }
 
   const bestRegions = data.regions.slice(0, 4);
-  const featuredRegion = data.regions[0];
+  const featuredRegion = data.regions[0]!;
 
   return (
     <AppShell>
@@ -62,55 +59,11 @@ export default async function MapPage() {
         </p>
       </div>
 
-      <section className="map-layout">
-        <aside className="filter-panel" aria-label="Camadas de análise">
-          <h2>Camadas</h2>
-          {analysisLayers.map((layer) => (
-            <LayerToggle
-              active={layer.active}
-              description={layer.description}
-              key={layer.name}
-              label={layer.name}
-            />
-          ))}
-          <button className="more-filters" type="button">
-            Mais filtros
-          </button>
-        </aside>
-
-        <div className="map-stage">
-          <MapMock />
-        </div>
-
-        <aside className="results-panel" aria-label="Melhores regiões">
-          <div className="results-panel__summary">
-            <span className="eyebrow">Melhor região identificada</span>
-            <h2>{featuredRegion?.name}</h2>
-            <div className="summary-metrics">
-              <MetricCard
-                label="Score"
-                tone="navy"
-                value={`${featuredRegion?.score}/100`}
-              />
-              <MetricCard
-                label="Payback"
-                value={`${featuredRegion?.payback} anos`}
-              />
-              <MetricCard
-                label="Investimento"
-                value={featuredRegion?.estimatedInvestmentFormatted ?? "Indeterminado"}
-              />
-            </div>
-          </div>
-
-          <div className="region-list">
-            <h2>Melhores regiões</h2>
-            {bestRegions.map((region, index) => (
-              <RegionCard key={region.id} rank={index + 1} region={region} />
-            ))}
-          </div>
-        </aside>
-      </section>
+      <MapPageClient
+        mapRegions={mapRegions}
+        featuredRegion={featuredRegion}
+        bestRegions={bestRegions}
+      />
     </AppShell>
   );
 }

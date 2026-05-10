@@ -3,7 +3,7 @@
 > Data: 2026-05-10
 > Versão: 1.0 — MVP Hackathon
 > Base URL (dev): `http://localhost:8000`
-> Base URL (produção): `https://pid-oportunidades-production.up.railway.app`
+> Base URL (produção): `https://pid-oportunidades.onrender.com`
 
 ---
 
