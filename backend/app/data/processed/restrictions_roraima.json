@@ -1,0 +1,173 @@
+{
+  "state": "Roraima",
+  "dataQuality": "real",
+  "disclaimer": "A análise é preliminar e não substitui licenciamento ambiental, consulta adequada ou análise jurídica especializada.",
+  "layers": [
+    {
+      "id": "terras-indigenas",
+      "name": "Terras indígenas",
+      "type": "territorial",
+      "severity": "critical",
+      "source": "FUNAI GeoServer",
+      "dataQuality": "real",
+      "count": 36,
+      "total_area_ha": 0.0,
+      "description": "36 terras indígenas identificadas em Roraima, totalizando 0 ha. Exigem consulta adequada e análise jurídica antes de qualquer intervenção.",
+      "items": [
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        },
+        {
+          "nome": "N/A",
+          "situacao": "Regularizada",
+          "area_ha": 0.0,
+          "uf": "RR"
+        }
+      ]
+    },
+    {
+      "id": "unidades-conservacao",
+      "name": "Unidades de conservação",
+      "type": "ambiental",
+      "severity": "attention",
+      "source": "ICMBio",
+      "dataQuality": "partial",
+      "count": null,
+      "description": "Áreas protegidas que exigem avaliação legal, ambiental e de compatibilidade do projeto.",
+      "items": []
+    },
+    {
+      "id": "areas-embargadas",
+      "name": "Áreas embargadas",
+      "type": "legal",
+      "severity": "critical",
+      "source": "IBAMA",
+      "dataQuality": "planned",
+      "count": null,
+      "description": "Sinalizam necessidade de due diligence antes de qualquer decisão de prospecção. Integração com IBAMA planejada.",
+      "items": []
+    },
+    {
+      "id": "app-reserva-legal",
+      "name": "APP / Reserva Legal",
+      "type": "legal",
+      "severity": "attention",
+      "source": "CAR/SFB",
+      "dataQuality": "planned",
+      "count": null,
+      "description": "Indicadores de restrição de uso do solo. Integração com Cadastro Ambiental Rural planejada.",
+      "items": []
+    }
+  ]
+}

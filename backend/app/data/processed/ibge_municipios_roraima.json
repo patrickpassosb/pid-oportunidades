@@ -1,0 +1,147 @@
+{
+  "state": "Roraima",
+  "uf": "RR",
+  "source": "IBGE/SIDRA",
+  "tables": [
+    "6579 (população)",
+    "5938 (PIB)"
+  ],
+  "dataQuality": "real",
+  "municipios": [
+    {
+      "cod_ibge": "1400050",
+      "nome": "Alto Alegre",
+      "lat": 2.99,
+      "lon": -61.31,
+      "populacao": 23589,
+      "pib": 802540.0,
+      "demandProxyScore": 4.9
+    },
+    {
+      "cod_ibge": "1400027",
+      "nome": "Amajari",
+      "lat": 3.65,
+      "lon": -61.37,
+      "populacao": 16112,
+      "pib": 329100.0,
+      "demandProxyScore": 3.3
+    },
+    {
+      "cod_ibge": "1400100",
+      "nome": "Boa Vista",
+      "lat": 2.82,
+      "lon": -60.67,
+      "populacao": 485477,
+      "pib": 18234169.0,
+      "demandProxyScore": 100.0
+    },
+    {
+      "cod_ibge": "1400159",
+      "nome": "Bonfim",
+      "lat": 3.36,
+      "lon": -59.83,
+      "populacao": 15570,
+      "pib": 772903.0,
+      "demandProxyScore": 3.2
+    },
+    {
+      "cod_ibge": "1400175",
+      "nome": "Cantá",
+      "lat": 2.61,
+      "lon": -60.59,
+      "populacao": 21102,
+      "pib": 498394.0,
+      "demandProxyScore": 4.3
+    },
+    {
+      "cod_ibge": "1400209",
+      "nome": "Caracaraí",
+      "lat": 1.83,
+      "lon": -61.13,
+      "populacao": 22750,
+      "pib": 637454.0,
+      "demandProxyScore": 4.7
+    },
+    {
+      "cod_ibge": "1400233",
+      "nome": "Caroebe",
+      "lat": 0.88,
+      "lon": -59.7,
+      "populacao": 12004,
+      "pib": 317377.0,
+      "demandProxyScore": 2.5
+    },
+    {
+      "cod_ibge": "1400282",
+      "nome": "Iracema",
+      "lat": 2.18,
+      "lon": -61.04,
+      "populacao": 10937,
+      "pib": 279559.0,
+      "demandProxyScore": 2.3
+    },
+    {
+      "cod_ibge": "1400308",
+      "nome": "Mucajaí",
+      "lat": 2.43,
+      "lon": -60.9,
+      "populacao": 20006,
+      "pib": 552044.0,
+      "demandProxyScore": 4.1
+    },
+    {
+      "cod_ibge": "1400407",
+      "nome": "Normandia",
+      "lat": 3.88,
+      "lon": -59.62,
+      "populacao": 16323,
+      "pib": 370956.0,
+      "demandProxyScore": 3.4
+    },
+    {
+      "cod_ibge": "1400456",
+      "nome": "Pacaraima",
+      "lat": 4.48,
+      "lon": -61.15,
+      "populacao": 23112,
+      "pib": 447421.0,
+      "demandProxyScore": 4.8
+    },
+    {
+      "cod_ibge": "1400472",
+      "nome": "Rorainópolis",
+      "lat": -0.94,
+      "lon": -60.44,
+      "populacao": 37787,
+      "pib": 981040.0,
+      "demandProxyScore": 7.8
+    },
+    {
+      "cod_ibge": "1400506",
+      "nome": "São João da Baliza",
+      "lat": 0.95,
+      "lon": -59.91,
+      "populacao": 9969,
+      "pib": 425809.0,
+      "demandProxyScore": 2.1
+    },
+    {
+      "cod_ibge": "1400605",
+      "nome": "São Luiz",
+      "lat": 1.01,
+      "lon": -60.04,
+      "populacao": 7848,
+      "pib": 221585.0,
+      "demandProxyScore": 1.6
+    },
+    {
+      "cod_ibge": "1400704",
+      "nome": "Uiramutã",
+      "lat": 4.6,
+      "lon": -60.18,
+      "populacao": 16186,
+      "pib": 254453.0,
+      "demandProxyScore": 3.3
+    }
+  ]
+}

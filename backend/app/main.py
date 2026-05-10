@@ -11,7 +11,6 @@ from app.routes.ons import router as ons_router
 from app.routes.nasa import router as nasa_router
 from app.routes.decarbonization import router as decarbonization_router
 from app.routes.datasets import router as datasets_router
-from app.services.ingestion_service import ingest_all
 
 # Configurar logging
 logging.basicConfig(
@@ -47,23 +46,21 @@ def _get_allowed_origin_regex() -> str | None:
 
 
 # ---------------------------------------------------------------------------
-# Startup: roda ingestão inicial de dados se cache não existir
+# Startup: verifica cache sem bloquear o servidor
 # ---------------------------------------------------------------------------
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Executa ingestão de dados na inicialização do servidor."""
+    """Verifica cache na inicialização sem bloquear o servidor."""
     logger.info("=== PID API Startup — verificando cache de dados ===")
     try:
         from app.services.data_loader import load_processed_json
         ibge = load_processed_json("ibge_municipios_roraima.json", max_age_hours=24)
         if ibge is None:
-            logger.info("Cache expirado ou inexistente — rodando ingestão…")
-            results = ingest_all()
-            logger.info(f"Ingestão concluída: {results}")
+            logger.info("Cache não encontrado — dados serão carregados sob demanda na primeira requisição.")
         else:
             logger.info("Cache válido encontrado — pulando ingestão.")
     except Exception as e:
-        logger.error(f"Erro na ingestão inicial (API continuará): {e}")
+        logger.error(f"Erro ao verificar cache (API continuará): {e}")
     yield
 
 

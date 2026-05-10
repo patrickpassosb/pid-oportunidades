@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: pid-oportunidades-api
+    name: pid-oportunidades
     runtime: python
     rootDir: backend
     buildCommand: pip install -r requirements.txt

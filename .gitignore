@@ -34,5 +34,6 @@ dist/
 *.egg-info/
 
 # Backend data cache
-backend/app/data/processed/*.json
-backend/app/data/processed/*.meta.json
+# Nota: arquivos de seed são commitados para startup rápido no Render
+# backend/app/data/processed/*.json
+# backend/app/data/processed/*.meta.json

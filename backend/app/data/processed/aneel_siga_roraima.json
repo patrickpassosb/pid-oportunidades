@@ -1,0 +1,86 @@
+{
+  "state": "Roraima",
+  "uf": "RR",
+  "source": "ANEEL Dados Abertos / SIGA",
+  "dataQuality": "real",
+  "total_empreendimentos": 149,
+  "total_capacidade_kw": 515840.0,
+  "total_capacidade_mw": 515.84,
+  "fossil_mw": 503.74,
+  "renewable_mw": 12.1,
+  "fossil_share": 97.7,
+  "by_source": {
+    "UTE": {
+      "count": 146,
+      "capacidade_kw": 503740.0,
+      "empreendimentos": [
+        {
+          "nome": "Com. Ind Água Fria",
+          "municipio": "",
+          "potencia_kw": 224.0,
+          "fase": "Operação"
+        },
+        {
+          "nome": "Campos Novos",
+          "municipio": "",
+          "potencia_kw": 360.0,
+          "fase": "Operação"
+        },
+        {
+          "nome": "Canauanim",
+          "municipio": "",
+          "potencia_kw": 24.0,
+          "fase": "Operação"
+        },
+        {
+          "nome": "Caracaraí",
+          "municipio": "",
+          "potencia_kw": 6272.0,
+          "fase": "Operação"
+        },
+        {
+          "nome": "Com. Indígena Contão",
+          "municipio": "",
+          "potencia_kw": 299.0,
+          "fase": "Operação"
+        }
+      ],
+      "category": "fossil",
+      "capacidade_mw": 503.74
+    },
+    "UHE": {
+      "count": 1,
+      "capacidade_kw": 10000.0,
+      "empreendimentos": [
+        {
+          "nome": "Alto Jatapu",
+          "municipio": "",
+          "potencia_kw": 10000.0,
+          "fase": "Operação"
+        }
+      ],
+      "category": "renewable",
+      "capacidade_mw": 10.0
+    },
+    "UFV": {
+      "count": 2,
+      "capacidade_kw": 2100.0,
+      "empreendimentos": [
+        {
+          "nome": "UTX Amajari",
+          "municipio": "",
+          "potencia_kw": 1050.0,
+          "fase": "Operação"
+        },
+        {
+          "nome": "UTX Pacaraima",
+          "municipio": "",
+          "potencia_kw": 1050.0,
+          "fase": "Operação"
+        }
+      ],
+      "category": "renewable",
+      "capacidade_mw": 2.1
+    }
+  }
+}
