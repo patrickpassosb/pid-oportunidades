@@ -172,3 +172,68 @@ export const featuredRegion = regions[0]!;
 export function getRegionBySlug(slug: string) {
   return regions.find((region) => region.slug === slug);
 }
+
+import type { InvestmentRegionsResponse } from "@/lib/types";
+
+export const investmentRegionsFallback: InvestmentRegionsResponse = {
+  state: "Roraima",
+  sector: "Energia",
+  regions: [
+    {
+      id: "boa-vista-mucajai",
+      name: "Boa Vista — Mucajaí",
+      score: 78,
+      project: "Usina solar fotovoltaica de 5 MW",
+      estimatedInvestment: 18500000,
+      estimatedInvestmentFormatted: "R$ 18,5 milhões",
+      payback: 6.8,
+      risk: "Médio",
+      contributionToPlan: "Alta",
+      recommendation: "Avançar para estudo técnico",
+      explanation:
+        "Bom potencial solar, proximidade relativa da infraestrutura elétrica e menor sobreposição aparente com áreas de restrição crítica.",
+    },
+    {
+      id: "rorainopolis",
+      name: "Rorainópolis",
+      score: 71,
+      project: "Usina solar fotovoltaica de 5 MW",
+      estimatedInvestment: 22000000,
+      estimatedInvestmentFormatted: "R$ 22 milhões",
+      payback: 7.4,
+      risk: "Médio",
+      contributionToPlan: "Média",
+      recommendation: "Avaliar conexão e logística",
+      explanation:
+        "Irradiação solar favorável e potencial para atender demanda regional. Requer estudo de capacidade de rede.",
+    },
+    {
+      id: "caracarai",
+      name: "Caracaraí",
+      score: 64,
+      project: "Usina solar fotovoltaica de 3 MW",
+      estimatedInvestment: 14000000,
+      estimatedInvestmentFormatted: "R$ 14 milhões",
+      payback: 8.1,
+      risk: "Médio",
+      contributionToPlan: "Média",
+      recommendation: "Requer análise logística",
+      explanation:
+        "Posição intermediária no estado com potencial solar adequado. Distância de conexão pode elevar CAPEX.",
+    },
+    {
+      id: "pacaraima",
+      name: "Pacaraima",
+      score: 49,
+      project: "Estudo preliminar necessário",
+      estimatedInvestment: null,
+      estimatedInvestmentFormatted: "Indeterminado",
+      payback: 9.2,
+      risk: "Alto",
+      contributionToPlan: "Baixa",
+      recommendation: "Evitar prospecção inicial sem due diligence",
+      explanation:
+        "Risco socioambiental alto na triagem preliminar. Não recomendada para prospecção inicial da demo.",
+    },
+  ],
+};

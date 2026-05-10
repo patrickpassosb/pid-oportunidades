@@ -1,15 +1,15 @@
 import { Button } from "@/components/ui/Button";
 import { RiskBadge } from "@/components/ui/RiskBadge";
-import type { Region } from "@/data/regions";
-import { formatPayback } from "@/lib/format";
+import type { InvestmentRegion } from "@/lib/types";
 
 type RegionCardProps = {
-  region: Region;
+  region: InvestmentRegion;
   rank: number;
 };
 
 export function RegionCard({ region, rank }: RegionCardProps) {
-  const href = region.slug === "boa-vista-mucajai" ? "/regiao/boa-vista-mucajai" : undefined;
+  const href =
+    region.id === "boa-vista-mucajai" ? "/regiao/boa-vista-mucajai" : undefined;
 
   return (
     <article className="region-card">
@@ -26,7 +26,7 @@ export function RegionCard({ region, rank }: RegionCardProps) {
           </div>
           <div>
             <dt>Payback</dt>
-            <dd>{formatPayback(region.payback)}</dd>
+            <dd>{region.payback} anos</dd>
           </div>
         </dl>
         <p>{region.recommendation}</p>

@@ -2,80 +2,89 @@ import { AppShell } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
-const projectTypes = [
+const questions = [
   {
-    title: "Usina solar fotovoltaica",
-    description: "Disponível para a primeira análise em Roraima.",
+    title: "Quanto custa descarbonizar Roraima?",
+    description: "Simulação preliminar disponível.",
     available: true,
   },
   {
-    title: "Bateria / armazenamento",
+    title: "Onde investir em solar fotovoltaica?",
+    description: "Disponível",
+    available: true,
+  },
+  {
+    title: "Quais projetos reduzem mais emissões?",
     description: "Em breve",
     available: false,
   },
   {
-    title: "Transmissão",
-    description: "Em breve",
-    available: false,
-  },
-  {
-    title: "Outro projeto",
+    title: "Quanto tempo levaria para atingir a meta?",
     description: "Em breve",
     available: false,
   },
 ];
 
-const sizes = ["1 MW", "5 MW", "10 MW", "30 MW"];
-
 export default function ConfigurationPage() {
   return (
     <AppShell>
       <section className="page-heading">
-        <span className="eyebrow">Configure sua análise</span>
-        <h1>Que tipo de projeto você quer analisar?</h1>
-        <p>Defina os parâmetros essenciais para gerar um mapa preliminar de oportunidades.</p>
+        <span className="eyebrow">Configuração do cenário</span>
+        <h1>O que você quer entender?</h1>
+        <p>Defina os parâmetros essenciais para gerar uma simulação preliminar de descarbonização.</p>
       </section>
 
       <div className="config-layout">
         <section className="config-main" aria-label="Configuração da análise">
           <div className="option-grid">
-            {projectTypes.map((project) => (
+            {questions.map((q) => (
               <article
-                className={`option-card ${project.available ? "option-card--selected" : "option-card--disabled"}`}
-                key={project.title}
+                className={`option-card ${q.available ? "option-card--selected" : "option-card--disabled"}`}
+                key={q.title}
               >
                 <span className="option-card__status">
-                  {project.available ? "Selecionado" : "Em breve"}
+                  {q.available ? "Disponível" : "Em breve"}
                 </span>
-                <h2>{project.title}</h2>
-                <p>{project.description}</p>
+                <h2>{q.title}</h2>
+                <p>{q.description}</p>
               </article>
             ))}
           </div>
 
           <section className="size-section">
-            <h2>Qual porte do projeto?</h2>
-            <div className="segmented-control" role="list">
-              {sizes.map((size) => (
-                <button className={size === "5 MW" ? "is-selected" : ""} key={size} type="button">
-                  {size}
-                </button>
-              ))}
+            <h2>Configuração simples</h2>
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-[var(--navy)]">Estado</span>
+                <span className="text-[var(--muted)]">Roraima</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-[var(--navy)]">Setor</span>
+                <span className="text-[var(--muted)]">Energia</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-[var(--navy)]">Projeto prioritário</span>
+                <span className="text-[var(--muted)]">Solar fotovoltaica</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-[var(--navy)]">Porte de referência</span>
+                <span className="text-[var(--muted)]">5 MW</span>
+              </div>
             </div>
           </section>
 
           <div className="config-actions">
-            <Button href="/mapa">Gerar mapa</Button>
+            <Button href="/simulacao">Gerar simulação</Button>
           </div>
         </section>
 
         <Card className="context-card">
           <h2>O que será analisado?</h2>
           <ul>
-            <li>Potencial solar e horas de sol pleno</li>
-            <li>Infraestrutura elétrica próxima</li>
-            <li>Estimativa preliminar de investimento e retorno</li>
-            <li>Restrições socioambientais para due diligence</li>
+            <li>Custo estimado indicativo de descarbonização</li>
+            <li>Prazo preliminar para execução do plano</li>
+            <li>Alavancas de redução de emissões</li>
+            <li>Regiões prioritárias para investimento inicial</li>
           </ul>
         </Card>
       </div>

@@ -3,15 +3,20 @@ import { AppShell } from "@/components/layout/AppShell";
 import { MapMock } from "@/components/map/MapMock";
 import { Button } from "@/components/ui/Button";
 import { MetricCard } from "@/components/ui/MetricCard";
-import { featuredRegion } from "@/data/regions";
+import { getDecarbonizationScenario } from "@/lib/api";
 
-export default function CopilotPage() {
+export default async function CopilotPage() {
+  const scenario = await getDecarbonizationScenario();
+
   return (
     <AppShell>
       <section className="page-heading">
         <span className="eyebrow">Inteligência analítica institucional</span>
         <h1>Copiloto PID</h1>
-        <p>Pergunte sobre viabilidade, restrições, retorno estimado ou comparação entre regiões.</p>
+        <p>
+          Pergunte sobre custo, tempo, alavancas e regiões prioritárias para
+          descarbonização.
+        </p>
       </section>
 
       <section className="copilot-layout">
@@ -19,9 +24,18 @@ export default function CopilotPage() {
           <h2>Contexto da análise</h2>
           <MapMock interactive={false} mode="compact" />
           <div className="metric-grid metric-grid--three">
-            <MetricCard label="Região foco" value={featuredRegion.name} />
-            <MetricCard label="Score" tone="navy" value={`${featuredRegion.score}/100`} />
-            <MetricCard label="Risco" tone="wine" value={featuredRegion.risk} />
+            <MetricCard
+              label="Investimento estimado"
+              value={scenario.estimatedInvestmentFormatted}
+            />
+            <MetricCard
+              label="Prazo estimado"
+              value={scenario.estimatedTimeline}
+            />
+            <MetricCard
+              label="Emissões evitáveis"
+              value={scenario.avoidedEmissionsFormatted}
+            />
           </div>
           <Button href="/relatorio">Gerar relatório</Button>
         </div>
