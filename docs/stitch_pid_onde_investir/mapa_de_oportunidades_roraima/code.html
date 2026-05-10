@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mapa de Oportunidades - Roraima</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#adc7f8",
+                      "primary": "#001029",
+                      "secondary-fixed-dim": "#ffb4a3",
+                      "on-surface": "#1a1b1f",
+                      "on-primary-fixed-variant": "#2c4771",
+                      "tertiary-container": "#1b2828",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c4c6d0",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#bbc9c9",
+                      "surface": "#faf9fd",
+                      "on-tertiary-fixed-variant": "#3c4949",
+                      "on-primary-fixed": "#001b3d",
+                      "on-secondary-fixed-variant": "#8b1a00",
+                      "surface-dim": "#dad9dd",
+                      "tertiary": "#071313",
+                      "on-surface-variant": "#43474e",
+                      "secondary-container": "#de3002",
+                      "background": "#faf9fd",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#2f3033",
+                      "on-background": "#1a1b1f",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#f4f3f7",
+                      "surface-container-high": "#e9e7ec",
+                      "surface-container": "#eeedf1",
+                      "on-tertiary-container": "#828f90",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "primary-container": "#03254d",
+                      "inverse-on-surface": "#f1f0f4",
+                      "on-tertiary-fixed": "#111e1e",
+                      "surface-variant": "#e3e2e6",
+                      "error": "#ba1a1a",
+                      "secondary": "#b22400",
+                      "on-primary-container": "#738dbb",
+                      "on-secondary-fixed": "#3d0600",
+                      "surface-tint": "#455f8a",
+                      "outline": "#74777f",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#adc7f8",
+                      "surface-bright": "#faf9fd",
+                      "secondary-fixed": "#ffdad2",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#d6e3ff",
+                      "tertiary-fixed": "#d7e5e5",
+                      "surface-container-highest": "#e3e2e6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-on-surface text-primary dark:text-inverse-primary font-body-md text-body-md docked h-full w-72 left-0 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col fixed left-0 top-0 h-screen z-50 py-lg">
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm mb-xs">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold">P</div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary">PID</h1>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Plataforma Interativa de Descarbonização</p>
+</div>
+<ul class="flex flex-col flex-1">
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span>PID Data</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary opacity-80 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span>Onde Investir?</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Reports</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+<span>Data Sources</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</li>
+</ul>
+<div class="px-md mt-auto">
+<button class="w-full bg-surface-container-low text-primary border border-outline-variant rounded-full py-2 font-label-md text-label-md font-bold hover:bg-surface-variant transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col ml-72">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-surface text-primary dark:text-inverse-primary font-label-md text-label-md docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary">Decarbonization Intelligence</span>
+<nav class="hidden md:flex items-center gap-md ml-lg">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Dashboard</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 scale-95 duration-100" href="#">Regional Map</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Policy Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-low border-outline-variant rounded-full pl-lg pr-4 py-1 text-sm focus:border-primary focus:ring-0 w-64" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1.5 text-on-surface-variant text-sm">search</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+<div class="flex items-center gap-sm ml-sm">
+<button class="text-primary hover:underline font-label-md text-label-md">Contact Support</button>
+<button class="bg-secondary text-on-secondary rounded-full px-4 py-2 font-label-md text-label-md hover:bg-secondary-container transition-colors">Invest Now</button>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant ml-sm overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNAMMxkiNygd6JYRdtI5-8a2AiZk6lX9y364-UEwmVnt5-KC3tGZEjGwbrgczYOV_RpmHrfF6PlMCRDwvZTHFQlAxrxVHKp9RHEMias0H39fnKvUQ1nownwdwEiI6lLNibcG7vBhEg9aOvlkXR39G2J-1B3rrSITPozgh11x4-qMnxZFa1ami7XbNktcihaljDNOc6YBD9xhvR3od5iD4ZM2zRr8O87S8PdhhOoFB40nx1emjoFFRx6537JO8JIHqZlf1TGmHgfznz"/>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Left Sidebar: Camadas & Filtros -->
+<aside class="w-80 bg-surface border-r border-outline-variant flex flex-col overflow-y-auto">
+<div class="p-md border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Camadas</h2>
+<div class="flex flex-col gap-sm">
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Potencial solar</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Linhas de transmissão</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Subestações</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Terras indígenas</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Unidades de conservação</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Áreas embargadas</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Rodovias</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="rounded text-primary focus:ring-primary border-outline-variant" type="checkbox"/>
+<span class="font-label-md text-label-md text-on-surface">Demanda local</span>
+</label>
+</div>
+</div>
+<div class="p-md">
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Filtros</h2>
+<div class="mb-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Capacidade Mínima</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded p-sm font-body-md text-body-md focus:border-primary focus:ring-0">
+<option>5 MW</option>
+<option>10 MW</option>
+<option>50 MW</option>
+</select>
+</div>
+<div class="mb-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Distância Máx. Subestação</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded p-sm font-body-md text-body-md focus:border-primary focus:ring-0">
+<option>20 km</option>
+<option>50 km</option>
+<option>100 km</option>
+</select>
+</div>
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-md text-label-md text-on-surface">Exclusão Áreas Protegidas</span>
+<div class="w-10 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="w-4 h-4 bg-surface rounded-full absolute right-1 top-1"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Prioridade Payback</span>
+<div class="w-10 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="w-4 h-4 bg-surface rounded-full absolute right-1 top-1"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Map -->
+<section class="flex-1 relative bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 bg-[#e3e2e6] flex items-center justify-center">
+<!-- Placeholder for actual map implementation -->
+<div class="text-center">
+<span class="material-symbols-outlined text-6xl text-on-surface-variant mb-sm" data-icon="map">map</span>
+<p class="font-headline-md text-headline-md text-on-surface-variant">Mapa de Roraima</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mt-sm">Visualização geoespacial com zonas (Verde, Amarelo, Vermelho), marcadores de cidades e linhas de infraestrutura.</p>
+</div>
+<!-- Simulating Map Legend Overlay -->
+<div class="absolute bottom-lg left-lg bg-surface border border-outline-variant rounded-lg p-sm shadow-md">
+<h4 class="font-label-sm text-label-sm text-primary mb-xs">Zonamento de Oportunidade</h4>
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-xs"><div class="w-3 h-3 rounded-full bg-green-500"></div><span class="font-label-sm text-label-sm">Boa (Verde)</span></div>
+<div class="flex items-center gap-xs"><div class="w-3 h-3 rounded-full bg-yellow-500"></div><span class="font-label-sm text-label-sm">Atenção (Amarelo)</span></div>
+<div class="flex items-center gap-xs"><div class="w-3 h-3 rounded-full bg-red-500"></div><span class="font-label-sm text-label-sm">Crítica (Vermelho)</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Summary -->
+<aside class="w-96 bg-surface border-l border-outline-variant flex flex-col p-lg overflow-y-auto">
+<h2 class="font-headline-md text-headline-md text-primary mb-lg">Resumo da análise</h2>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md mb-md shadow-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Melhor Região Identificada</p>
+<p class="font-headline-md text-headline-md text-primary font-bold">Eixo Boa Vista — Mucajaí</p>
+</div>
+<div class="grid grid-cols-2 gap-md mb-lg">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Score Técnico</p>
+<div class="flex items-end gap-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-black">78</span>
+<span class="font-body-md text-body-md text-on-surface-variant pb-1">/100</span>
+</div>
+<div class="w-full bg-surface-variant h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 78%"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Payback Estimado</p>
+<div class="flex items-end gap-xs">
+<span class="font-headline-lg text-headline-lg text-primary font-black">6,8</span>
+<span class="font-body-md text-body-md text-on-surface-variant pb-1">anos</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Investimento Capex</p>
+<p class="font-headline-md text-headline-md text-primary font-bold">R$ 18,5 mi</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md shadow-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Nível de Risco</p>
+<div class="inline-flex items-center gap-xs px-2 py-1 rounded-sm bg-yellow-100 text-yellow-800 border border-yellow-200 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span>
+<span class="font-label-sm text-label-sm font-bold">Médio</span>
+</div>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-md">
+<button class="w-full bg-surface text-primary border-2 border-primary rounded-full py-3 font-label-md text-label-md font-bold hover:bg-surface-container-low transition-colors">
+                        Comparar regiões
+                    </button>
+<button class="w-full bg-surface text-primary border-2 border-primary rounded-full py-3 font-label-md text-label-md font-bold hover:bg-surface-container-low transition-colors">
+                        Gerar relatório
+                    </button>
+<button class="w-full bg-secondary text-on-secondary rounded-full py-3 font-label-md text-label-md font-bold hover:bg-secondary-container transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                        Perguntar ao copiloto
+                    </button>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

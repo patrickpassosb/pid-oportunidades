@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PID - Decarbonization Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7f8",
+                        "primary": "#001029",
+                        "secondary-fixed-dim": "#ffb4a3",
+                        "on-surface": "#1a1b1f",
+                        "on-primary-fixed-variant": "#2c4771",
+                        "tertiary-container": "#1b2828",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c4c6d0",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#bbc9c9",
+                        "surface": "#faf9fd",
+                        "on-tertiary-fixed-variant": "#3c4949",
+                        "on-primary-fixed": "#001b3d",
+                        "on-secondary-fixed-variant": "#8b1a00",
+                        "surface-dim": "#dad9dd",
+                        "tertiary": "#071313",
+                        "on-surface-variant": "#43474e",
+                        "secondary-container": "#de3002",
+                        "background": "#faf9fd",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2f3033",
+                        "on-background": "#1a1b1f",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f4f3f7",
+                        "surface-container-high": "#e9e7ec",
+                        "surface-container": "#eeedf1",
+                        "on-tertiary-container": "#828f90",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#03254d",
+                        "inverse-on-surface": "#f1f0f4",
+                        "on-tertiary-fixed": "#111e1e",
+                        "surface-variant": "#e3e2e6",
+                        "error": "#ba1a1a",
+                        "secondary": "#b22400",
+                        "on-primary-container": "#738dbb",
+                        "on-secondary-fixed": "#3d0600",
+                        "surface-tint": "#455f8a",
+                        "outline": "#74777f",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#adc7f8",
+                        "surface-bright": "#faf9fd",
+                        "secondary-fixed": "#ffdad2",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed": "#d7e5e5",
+                        "surface-container-highest": "#e3e2e6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "margin": "32px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Subtle scrollbar for institutional feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c4c6d0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-hidden h-screen flex">
+<!-- JSON Component: SideNavBar -->
+<nav class="bg-surface border-r border-outline-variant flex flex-col fixed left-0 top-0 h-screen z-50 py-lg w-72">
+<div class="px-lg pb-lg mb-sm">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary icon-fill">eco</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary tracking-tight">PID</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate w-48">Plataforma Interativa de Descarbonização</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col px-md gap-unit flex-grow">
+<!-- Active Nav Item -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-surface-container-high text-secondary font-bold border-r-4 border-secondary transition-all opacity-80 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="font-label-md text-label-md">PID Data</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-label-md text-label-md">Onde Investir?</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">cloud_done</span>
+<span class="font-label-md text-label-md">Data Sources</span>
+</a>
+</div>
+<div class="px-md mt-auto pt-lg border-t border-outline-variant/30 flex flex-col gap-sm">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<button class="w-full py-sm px-md mt-sm rounded-full border-2 border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper (leaves space for SideNav on left and Copilot on right) -->
+<div class="flex-grow flex flex-col ml-72 mr-[400px] h-screen bg-[#F4F7F7]">
+<!-- JSON Component: TopAppBar -->
+<header class="bg-surface flex justify-between items-center w-full px-margin h-16 border-b border-outline-variant z-30 flex-shrink-0">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-primary">Decarbonization Intelligence</span>
+<nav class="hidden md:flex items-center gap-md ml-lg">
+<a class="font-label-md text-label-md text-secondary font-bold border-b-2 border-secondary pb-1 pt-1" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Regional Map</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="#">Policy Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface border border-outline-variant rounded-full font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none w-64 transition-all" placeholder="Search regions..." type="text"/>
+</div>
+<div class="flex items-center gap-xs border-r border-outline-variant pr-md mr-sm">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+<button class="text-primary font-label-md text-label-md hover:underline decoration-2 underline-offset-4 px-sm transition-transform scale-95 duration-100">Contact Support</button>
+<button class="bg-[#FA441A] text-white px-lg py-2 rounded-full font-label-md text-label-md hover:bg-[#de3002] transition-colors shadow-sm transition-transform scale-95 duration-100">Invest Now</button>
+</div>
+</header>
+<!-- Background Canvas / Dashboard (Blurred out slightly to focus on Copilot) -->
+<main class="flex-grow p-margin overflow-y-auto relative z-10">
+<!-- Semi-transparent overlay to emphasize the right panel -->
+<div class="absolute inset-0 bg-surface/40 backdrop-blur-[1px] pointer-events-none z-20"></div>
+<div class="grid grid-cols-12 gap-gutter max-w-[1400px] mx-auto">
+<!-- Header area -->
+<div class="col-span-12 mb-sm flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-unit">Análise Regional: Roraima</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Avaliação de viabilidade de projetos de restauro florestal.</p>
+</div>
+<div class="flex gap-sm">
+<span class="px-3 py-1 bg-[#B5446E]/10 text-[#B5446E] border border-[#B5446E]/30 rounded text-label-sm font-label-sm">Análise em Progresso</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="col-span-8 flex flex-col gap-gutter">
+<!-- Map Card placeholder -->
+<div class="bg-white rounded-xl border border-[#BECCCC] shadow-[0_4px_12px_rgba(0,16,41,0.04)] h-96 overflow-hidden relative">
+<div class="absolute top-md left-md bg-white/90 backdrop-blur px-md py-sm rounded shadow-sm border border-outline-variant/30 z-10">
+<h3 class="font-label-md text-label-md text-primary mb-1">Boa Vista — Mucajaí</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Zoneamento Primário</p>
+</div>
+<img alt="Map placeholder" class="w-full h-full object-cover opacity-70 sepia-[.2] hue-rotate-[190deg]" data-alt="A highly detailed satellite view of a lush river basin cutting through a dense tropical forest, rendered in a sophisticated, muted color palette dominated by deep navies and muted greens. The lighting is soft and analytical, suggesting high-end cartography software rather than a standard photograph. The image is clean, structured, and conveys a sense of environmental data analysis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUx7qJPJJjuh_5uy0I8SKRg4ATmE_JXhLU34fOoxxNwkG7tY0gjEEs-ywacIeXJQ1X0oKjJrsBTMtVVKVdTGQ0BKJ59MwKcDtSmKgxq_CszYB3VguKrJWPBbC6jfWt-wn0s9WaJC7tjovuOGYm2VfvOm3Z7FiTUQbbf0MW61Ypj4lrB0z1Jvs3hgmMQgq-0hTeT8UDsYbejB3BBKmdtIXFUfoKl3admNu0-_KN4HlDLLdbRXQuanRX8IBdF7ONavOPg3FoZ4VRywHy"/>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-3 gap-gutter">
+<div class="bg-white rounded-xl border border-[#BECCCC] p-md shadow-[0_4px_12px_rgba(0,16,41,0.04)]">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Potencial de Captura</h4>
+<div class="font-headline-lg text-headline-lg text-primary">2.4M</div>
+<div class="font-label-sm text-label-sm text-secondary mt-1">tCO2e / ano</div>
+</div>
+<div class="bg-white rounded-xl border border-[#BECCCC] p-md shadow-[0_4px_12px_rgba(0,16,41,0.04)]">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Risco Fundiário</h4>
+<div class="font-headline-lg text-headline-lg text-[#FA441A]">Alto</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Necessita validação CAR</div>
+</div>
+<div class="bg-white rounded-xl border border-[#BECCCC] p-md shadow-[0_4px_12px_rgba(0,16,41,0.04)]">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Score de Viabilidade</h4>
+<div class="font-headline-lg text-headline-lg text-[#4D4E03]">78/100</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">+12pts vs Média Norte</div>
+</div>
+</div>
+</div>
+<div class="col-span-4">
+<!-- Right column content placeholder -->
+<div class="bg-white rounded-xl border border-[#BECCCC] p-lg shadow-[0_4px_12px_rgba(0,16,41,0.04)] h-full">
+<h3 class="font-headline-md text-headline-md text-primary mb-md border-b border-[#F4F7F7] pb-sm">Restrições Identificadas</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-[#FA441A] mt-0.5 text-[20px]">warning</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Sobreposição de Área Indígena</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-0.5">Detectado no quadrante noroeste. Exige consulta prévia.</p>
+</div>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-[#B5446E] mt-0.5 text-[20px]">info</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Infraestrutura Logística</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-0.5">Acesso via rodovia não pavimentada no período de chuvas.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- JSON Component: NavigationDrawer (Copilot Panel) -->
+<aside class="bg-surface-container-highest fixed right-0 top-0 h-screen z-40 flex flex-col p-md shadow-lg border-l border-outline-variant w-[400px] transition-transform duration-300 ease-in-out">
+<!-- Header -->
+<div class="flex items-center gap-md pb-md border-b border-outline-variant/50 mb-md flex-shrink-0">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[28px] icon-fill">smart_toy</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary leading-tight">Copiloto PID</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Inteligência Analítica Institucional</p>
+</div>
+</div>
+<!-- Chat Area -->
+<div class="flex-grow overflow-y-auto pr-sm flex flex-col gap-lg pb-lg">
+<!-- Intro Text (System Message) -->
+<div class="bg-surface/60 rounded-xl p-md border border-outline-variant/30 backdrop-blur-sm">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Pergunte sobre viabilidade, restrições, retorno estimado ou comparação entre regiões. Estou conectado aos dados mais recentes do dashboard.
+                </p>
+</div>
+<!-- Example AI Answer Sequence -->
+<!-- User Prompt (Implicit but visually represented) -->
+<div class="flex justify-end">
+<div class="bg-surface border border-outline-variant rounded-2xl rounded-tr-sm px-md py-sm max-w-[85%] shadow-sm">
+<p class="font-body-md text-body-md text-primary">Qual a avaliação geral do eixo Boa Vista — Mucajaí comparado ao restante do estado?</p>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-on-primary text-[18px]">smart_toy</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl rounded-tl-sm p-md border border-outline-variant/50 shadow-sm w-full">
+<p class="font-body-md text-body-md text-primary mb-sm leading-relaxed">
+                        A região <strong class="font-semibold">Boa Vista — Mucajaí</strong> apresenta melhor equilíbrio para implementação inicial.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md leading-relaxed">
+                        Com base nos dados espaciais atuais, ela possui um Score de Viabilidade de 78/100, significativamente superior à média estadual devido à proximidade com infraestrutura viária primária. O custo estimado de implantação é 14% menor que áreas no sul do estado.
+                    </p>
+<div class="bg-[#B5446E]/10 border-l-4 border-[#B5446E] p-sm rounded-r mb-sm">
+<p class="font-label-md text-label-md text-[#550C18] flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                            Ponto de Atenção Crítico
+                        </p>
+<p class="font-body-md text-body-md text-[#550C18] text-sm mt-1">
+                            O principal gargalo é a validação fundiária. 42% das propriedades elegíveis apresentam inconformidades no CAR que requerem diligência prévia.
+                        </p>
+</div>
+<div class="mt-md flex gap-sm border-t border-outline-variant/30 pt-sm">
+<button class="flex items-center gap-xs text-secondary font-label-sm text-label-sm hover:underline">
+<span class="material-symbols-outlined text-[16px]">map</span>
+                             Ver no mapa
+                         </button>
+<button class="flex items-center gap-xs text-secondary font-label-sm text-label-sm hover:underline ml-auto">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+                             Copiar
+                         </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Input & Suggestions Area -->
+<div class="pt-md border-t border-outline-variant bg-surface-container-highest flex-shrink-0">
+<!-- Suggested Prompts -->
+<div class="flex flex-wrap gap-sm mb-md">
+<button class="px-3 py-1.5 rounded-full border border-outline-variant text-primary font-label-sm text-label-sm bg-surface hover:bg-surface-container-high transition-colors text-left flex-grow">
+                    Por que essa região tem score maior?
+                </button>
+<button class="px-3 py-1.5 rounded-full border border-outline-variant text-primary font-label-sm text-label-sm bg-surface hover:bg-surface-container-high transition-colors text-left flex-grow">
+                    Gere um resumo executivo
+                </button>
+</div>
+<!-- Input Field -->
+<div class="relative">
+<textarea class="w-full pl-md pr-12 py-md bg-surface border border-outline-variant rounded-xl font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none h-[100px]" placeholder="Faça uma pergunta sobre os dados..."></textarea>
+<button class="absolute right-sm bottom-sm w-8 h-8 rounded-full bg-[#FA441A] text-white flex items-center justify-center hover:bg-[#de3002] transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+<div class="text-center mt-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant opacity-70">A IA pode cometer erros. Verifique os relatórios base.</span>
+</div>
+</div>
+</aside>
+</body></html>
