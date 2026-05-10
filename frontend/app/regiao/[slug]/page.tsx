@@ -3,6 +3,7 @@ import { AppShell } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/Button";
 import { MetricCard } from "@/components/ui/MetricCard";
 import { ScoreBadge } from "@/components/ui/ScoreBadge";
+import { ErrorState } from "@/components/ui/ErrorState";
 import { getInvestmentRegions } from "@/lib/api";
 
 export default async function RegionDetailPage({
@@ -12,6 +13,17 @@ export default async function RegionDetailPage({
 }) {
   const { slug } = await params;
   const data = await getInvestmentRegions();
+
+  if (!data || !data.regions) {
+    return (
+      <AppShell>
+        <div className="max-w-4xl mx-auto pt-12">
+          <ErrorState message="Não foi possível carregar os dados da região." />
+        </div>
+      </AppShell>
+    );
+  }
+
   const region = data.regions.find((r) => r.id === slug);
 
   if (!region) {
