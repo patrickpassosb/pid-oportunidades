@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { cn } from "@/lib/cn";
 
 export function Sidebar() {
   return (
     <nav className="bg-surface dark:bg-on-surface docked h-full w-72 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col fixed left-0 top-0 h-screen z-50 py-lg hidden md:flex">
       <div className="px-lg mb-8">
         <div className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/pid-logo.svg"
             alt="PID Logo"

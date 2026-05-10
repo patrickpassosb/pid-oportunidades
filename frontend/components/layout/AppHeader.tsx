@@ -6,6 +6,7 @@ export function AppHeader() {
       {/* TopAppBar (Mobile) */}
       <header className="bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16 md:hidden">
         <div className="flex items-center gap-sm">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/pid-icon.svg"
             alt="PID Logo"
@@ -71,6 +72,7 @@ export function AppHeader() {
           <span className="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">
             notifications
           </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt="User Profile"
             className="w-8 h-8 rounded-full border border-outline-variant cursor-pointer"

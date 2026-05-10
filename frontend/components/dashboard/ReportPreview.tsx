@@ -7,6 +7,7 @@ export function ReportPreview() {
   return (
     <article className="report-preview">
       <header className="report-preview__header">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img alt="PID" src="/assets/pid-logo.svg" />
         <div>
           <span>Investment Brief</span>
