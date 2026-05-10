@@ -26,9 +26,9 @@ WEIGHTS = {
 }
 
 # Referências de custo (R$/kWp instalado para solar)
-SOLAR_COST_PER_KWP = 4_500  # R$/kWp
-SOLAR_CAPACITY_FACTOR = 0.18  # Fator de capacidade solar em Roraima
-TARIFF_RR = 0.85  # R$/kWh — tarifa média alta em Roraima (sistema isolado)
+SOLAR_COST_PER_KWP = 2_500  # R$/kWp — referência projetos 5-10 MW em Roraima
+SOLAR_CAPACITY_FACTOR = 0.20  # Fator de capacidade solar em Roraima (irradiação favorável)
+TARIFF_RR = 0.90  # R$/kWh — tarifa média alta em Roraima (sistema isolado)
 EMISSION_FACTOR = 0.65  # tCO2/MWh — fator de emissão da geração fóssil em RR
 
 

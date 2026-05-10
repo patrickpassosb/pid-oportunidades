@@ -1,5 +1,6 @@
 venv/
 __pycache__/
 *.pyc
-.envapp/data/processed/*.json
-app/data/metadata/*.json
+.env
+app/data/processed/*.json
+app/data/processed/*.meta.json

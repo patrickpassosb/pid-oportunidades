@@ -139,6 +139,28 @@ export async function ReportPreview() {
             </ul>
           </div>
         </section>
+
+        {report.sources && report.sources.length > 0 && (
+          <section className="report-section">
+            <span>8</span>
+            <div>
+              <h2>Fontes de dados</h2>
+              <ul className="space-y-2 text-[var(--muted)] leading-relaxed">
+                {report.sources.map((source) => (
+                  <li key={source.name} className="flex items-start gap-2">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--navy)] mt-2 flex-shrink-0" />
+                    <span>
+                      <strong className="text-[var(--navy-dark)]">{source.name}</strong>
+                      {source.use && (
+                        <span className="block text-sm">{source.use}</span>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
       </div>
     </article>
   );

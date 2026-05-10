@@ -22,7 +22,7 @@ export default async function MapPage() {
     );
   }
 
-  const bestRegions = data.regions.slice(0, 3);
+  const bestRegions = data.regions.slice(0, 4);
   const featuredRegion = data.regions[0];
 
   return (

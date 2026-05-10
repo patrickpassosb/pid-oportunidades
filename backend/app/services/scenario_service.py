@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 COST_MODEL = {
     "solar-distribuida": {
         "name": "Usinas solares distribuídas",
-        "cost_per_mw": 4_500_000,  # R$/MW instalado
+        "cost_per_mw": 2_500_000,  # R$/MW instalado
         "share_of_replacement": 0.45,  # 45% da capacidade fóssil substituída
         "timeline_min": 2,
         "timeline_max": 4,

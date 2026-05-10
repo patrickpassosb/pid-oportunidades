@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { RiskBadge } from "@/components/ui/RiskBadge";
+import { DataQualityBadge } from "@/components/ui/DataQualityBadge";
 import type { InvestmentRegion } from "@/lib/types";
 
 type RegionCardProps = {
@@ -17,7 +18,10 @@ export function RegionCard({ region, rank }: RegionCardProps) {
       <div className="region-card__body">
         <div className="region-card__header">
           <h3>{region.name}</h3>
-          <RiskBadge risk={region.risk} />
+          <div className="flex items-center gap-1.5">
+            <DataQualityBadge quality={region.dataQuality?.economic} />
+            <RiskBadge risk={region.risk} />
+          </div>
         </div>
         <dl className="region-card__metrics">
           <div>

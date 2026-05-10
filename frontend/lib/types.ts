@@ -1,4 +1,4 @@
-export type DataQuality = "real" | "estimated" | "fallback" | "partial";
+export type DataQuality = "real" | "estimated" | "fallback" | "partial" | "high" | "medium";
 
 export type DataSource = {
   name: string;

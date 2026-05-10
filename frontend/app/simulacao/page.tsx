@@ -110,6 +110,34 @@ export default async function SimulationPage() {
         </div>
       </section>
 
+      {scenario.dataQuality && (
+        <section className="card p-6 mb-8">
+          <h2 className="font-headline-md text-headline-md text-primary mb-4">
+            Qualidade dos dados
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {Object.entries(scenario.dataQuality)
+              .filter(([key]) => key !== "overallConfidence")
+              .map(([key, value]) => {
+                const mappedValue = value === "high" ? "real" : value === "medium" ? "partial" : (value as string);
+                return (
+                  <div key={key} className="flex items-center gap-2">
+                    <DataQualityBadge quality={mappedValue} />
+                    <span className="text-xs text-[var(--muted)] capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
+                  </div>
+                );
+              })}
+          </div>
+          <p className="text-[var(--muted)] text-sm mt-4">
+            Os dados de geração vêm da ANEEL, irradiação solar da NASA POWER.
+            Custos são estimados com base em referências de mercado.
+            <a href="/metodologia" className="text-[var(--navy)] hover:underline ml-1">
+              Ver metodologia completa →
+            </a>
+          </p>
+        </section>
+      )}
+
       <div className="bottom-actions">
         <Button href="/mapa">Ver onde investir</Button>
       </div>

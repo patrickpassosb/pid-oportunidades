@@ -9,7 +9,9 @@ export default async function ReportPage() {
         <Button href="/mapa" variant="secondary">
           Voltar ao mapa
         </Button>
-        <Button type="button">Baixar PDF</Button>
+        <Button disabled title="Geração de PDF em desenvolvimento" type="button">
+          Baixar PDF
+        </Button>
       </section>
       <ReportPreview />
     </AppShell>

@@ -32,3 +32,7 @@ env/
 build/
 dist/
 *.egg-info/
+
+# Backend data cache
+backend/app/data/processed/*.json
+backend/app/data/processed/*.meta.json

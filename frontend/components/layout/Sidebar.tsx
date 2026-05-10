@@ -52,7 +52,7 @@ export function Sidebar() {
         </li>
         <li>
           <Link
-            href="#"
+            href="/metodologia"
             className="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md"
           >
             <span className="material-symbols-outlined">cloud_done</span>
