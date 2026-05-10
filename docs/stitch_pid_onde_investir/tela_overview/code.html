@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PID - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dad9dd",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#43474e",
+                        "secondary": "#b22400",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#ffdad2",
+                        "inverse-on-surface": "#f1f0f4",
+                        "outline": "#74777f",
+                        "tertiary-fixed-dim": "#bbc9c9",
+                        "surface-container": "#eeedf1",
+                        "secondary-container": "#de3002",
+                        "tertiary": "#071313",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#1b2828",
+                        "on-secondary-fixed-variant": "#8b1a00",
+                        "background": "#faf9fd",
+                        "outline-variant": "#c4c6d0",
+                        "on-primary-fixed-variant": "#2c4771",
+                        "surface-container-high": "#e9e7ec",
+                        "surface-container-highest": "#e3e2e6",
+                        "on-surface": "#1a1b1f",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e3e2e6",
+                        "primary-container": "#03254d",
+                        "on-error": "#ffffff",
+                        "surface": "#faf9fd",
+                        "secondary-fixed-dim": "#ffb4a3",
+                        "tertiary-fixed": "#d7e5e5",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#adc7f8",
+                        "on-tertiary-fixed": "#111e1e",
+                        "on-tertiary-container": "#828f90",
+                        "on-secondary-container": "#fffbff",
+                        "primary": "#001029",
+                        "on-primary-fixed": "#001b3d",
+                        "inverse-surface": "#2f3033",
+                        "surface-bright": "#faf9fd",
+                        "primary-fixed-dim": "#adc7f8",
+                        "on-primary-container": "#738dbb",
+                        "surface-container-low": "#f4f3f7",
+                        "on-secondary-fixed": "#3d0600",
+                        "surface-tint": "#455f8a",
+                        "on-background": "#1a1b1f",
+                        "on-tertiary-fixed-variant": "#3c4949",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-on-surface docked h-full w-72 left-0 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col fixed left-0 top-0 h-screen z-50 py-lg hidden md:flex">
+<div class="px-lg mb-8">
+<div class="flex items-center gap-sm">
+<div aria-label="PID Logo Circular Symbol" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md font-extrabold">P</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary">PID</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Plataforma Interativa de Descarbonização</p>
+</div>
+</div>
+</div>
+<ul class="flex flex-col gap-unit px-sm flex-grow">
+<li class="">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary bg-surface-container-high font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined fill">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">database</span>
+                    PID Data
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+                    Onde Investir?
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                    Reports
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">cloud_done</span>
+                    Data Sources
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help
+                </a>
+</li>
+</ul>
+<div class="px-lg mt-auto">
+<button class="w-full py-sm px-md bg-transparent border-2 border-primary text-primary rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-72 min-h-screen flex flex-col">
+<!-- TopAppBar (Mobile Only for visual continuity, though technically Web usually hides bottom nav, we follow layout instructions) -->
+<header class="bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16 md:hidden">
+<div class="flex items-center gap-sm">
+<div aria-label="PID Logo" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md font-extrabold">P</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</div>
+</header>
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16 sticky z-40">
+<div class="flex items-center">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary">Decarbonization Intelligence</span>
+</div>
+<div class="flex-1 flex justify-center px-xl">
+<nav class="flex gap-lg">
+<a class="font-label-md text-label-md text-secondary font-bold border-b-2 border-secondary pb-1" href="#">Dashboard</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Regional Map</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors" href="#">Policy Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-sm border border-outline-variant rounded-full bg-surface-container-lowest focus:border-primary focus:ring-0 font-body-md text-body-md w-48 transition-all" placeholder="Search..." type="text">
+</div>
+<button class="font-label-md text-label-md text-primary hover:underline">Contact Support</button>
+<button class="font-label-md text-label-md bg-secondary text-on-primary px-md py-sm rounded-full hover:bg-secondary-container transition-colors border-none">Invest Now</button>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant cursor-pointer" data-alt="A close-up portrait of a professional individual in a corporate setting, looking directly at the camera with a neutral, confident expression. The lighting is soft and even, highlighting a modern, clean aesthetic typical of high-end business platforms. Deep navy and crisp white tones dominate the subtle background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATqax_Obs520fL3M4xR8YVjZwje8db8BumKVMGE9MAGzhlBwZT4aDVD29vW8stw9UZwA2pF83FSSeTNdDbvIhq68-Bct1Vm3zwz5kAOQ3QeXs4VM-Bijr54tB_hr1__I0lQ0ZgsMfM6Fd5OXDde5KCJJdIUafzQq_EGshhhBwOkv7j7rAQ9L2qs8-BHClIaGmy-9tAjnd9F34m8Ml0rS3f_eEs4uJubFs4loBjabGuFdP4H-If0SMYYPERghFZXh3BjXXKUwno92Nm">
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-margin flex-1 flex flex-col max-w-[1400px] mx-auto w-full">
+<!-- Hero / Central Question -->
+<section class="mb-xl text-center py-xl">
+<h2 class="font-display-lg text-display-lg text-primary mb-sm">O que você quer analisar hoje?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Acesse inteligência de dados, identifique oportunidades de investimento e monitore o impacto de projetos de descarbonização em tempo real.</p>
+<div class="mt-lg flex justify-center">
+<div class="relative w-full max-w-xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary text-[28px]">search</span>
+<input class="w-full pl-14 pr-4 py-4 rounded-full border-2 border-outline-variant focus:border-primary text-body-lg font-body-lg shadow-sm focus:ring-0 transition-colors bg-surface-container-lowest text-on-surface" placeholder="Busque por regiões, setores ou projetos..." type="text">
+</div>
+</div>
+</section>
+<!-- Main Actions (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
+<!-- Action Card 1 -->
+<a class="group block relative overflow-hidden rounded-xl bg-surface-container-lowest border border-tertiary-fixed-dim hover:border-primary hover:shadow-md transition-all duration-300 p-lg min-h-[240px] flex flex-col justify-between" href="#">
+<div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[80px] text-primary">rocket_launch</span>
+</div>
+<div>
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined fill">rocket_launch</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Onde Investir?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Descubra as regiões e setores com maior potencial de retorno e impacto na descarbonização.</p>
+</div>
+<div class="mt-md flex items-center text-secondary font-label-md text-label-md group-hover:translate-x-2 transition-transform">
+                        Explorar oportunidades <span class="material-symbols-outlined ml-xs text-[18px]">arrow_forward</span>
+</div>
+</a>
+<!-- Action Card 2 -->
+<a class="group block relative overflow-hidden rounded-xl bg-surface-container-lowest border border-tertiary-fixed-dim hover:border-primary hover:shadow-md transition-all duration-300 p-lg min-h-[240px] flex flex-col justify-between" href="#">
+<div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[80px] text-primary">eco</span>
+</div>
+<div>
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-primary flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined fill">eco</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Impacto de Projetos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Analise o desempenho e a redução de emissões de projetos em andamento ou concluídos.</p>
+</div>
+<div class="mt-md flex items-center text-primary font-label-md text-label-md group-hover:translate-x-2 transition-transform">
+                        Ver relatórios de impacto <span class="material-symbols-outlined ml-xs text-[18px]">arrow_forward</span>
+</div>
+</a>
+<!-- Action Card 3 -->
+<a class="group block relative overflow-hidden rounded-xl bg-surface-container-lowest border border-tertiary-fixed-dim hover:border-primary hover:shadow-md transition-all duration-300 p-lg min-h-[240px] flex flex-col justify-between" href="#">
+<div class="absolute top-0 right-0 p-lg opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[80px] text-primary">warning</span>
+</div>
+<div>
+<div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined fill">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Riscos Regionais</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Mapeie vulnerabilidades climáticas e riscos de transição energética por geolocalização.</p>
+</div>
+<div class="mt-md flex items-center text-error font-label-md text-label-md group-hover:translate-x-2 transition-transform">
+                        Acessar matriz de risco <span class="material-symbols-outlined ml-xs text-[18px]">arrow_forward</span>
+</div>
+</a>
+</section>
+<!-- High-Level KPIs -->
+<section>
+<div class="flex justify-between items-end mb-md">
+<h3 class="font-headline-md text-headline-md text-primary">Visão Global de Descarbonização</h3>
+<button class="font-label-md text-label-md text-primary flex items-center hover:underline">
+                        Ver painel completo <span class="material-symbols-outlined ml-xs text-[18px]">open_in_new</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest border border-tertiary-fixed-dim rounded-xl p-md flex flex-col justify-between">
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-sm">Redução Total (MtCO2e)</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-primary">145.2</span>
+<span class="text-secondary font-label-md text-label-md flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 12%
+                            </span>
+</div>
+<div class="w-full bg-surface-variant h-1 rounded-full mt-md overflow-hidden">
+<div class="bg-primary h-full w-[70%]"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest border border-tertiary-fixed-dim rounded-xl p-md flex flex-col justify-between">
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-sm">Projetos Ativos</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-primary">3,492</span>
+</div>
+<div class="mt-md flex gap-sm">
+<span class="px-2 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm text-[10px]">1,200 VERIFIED</span>
+<span class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm text-[10px]">2,292 IN PROGRESS</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest border border-tertiary-fixed-dim rounded-xl p-md flex flex-col justify-between md:col-span-2">
+<div class="flex justify-between items-start mb-sm">
+<div class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Investimento Mobilizado (USD)</div>
+<span class="material-symbols-outlined text-outline">more_horiz</span>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-display-lg text-primary">$4.2B</span>
+</div>
+<div class="mt-md h-12 flex items-end gap-1 opacity-80">
+<!-- Faux Sparkline -->
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[20%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[30%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[25%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[40%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[60%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[50%]"></div>
+<div class="w-full bg-primary-fixed-dim rounded-t-sm h-[80%]"></div>
+<div class="w-full bg-primary rounded-t-sm h-[100%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-surface-inverse text-inverse-on-surface text-[10px] px-1 rounded whitespace-nowrap hidden group-hover:block">Q4</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+
+</body></html>
