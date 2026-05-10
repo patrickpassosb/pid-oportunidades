@@ -216,7 +216,14 @@ Os tipos principais estão definidos em `docs/api-contract.md`. Resumo dos schem
 
 ### Convenções
 - Use `fetch` no frontend (Next.js App Router, server components quando possível)
-- Base URL do backend: `http://localhost:8000` (dev)
+- Base URL do backend:
+  - **Desenvolvimento local:** `http://localhost:8000`
+  - **Produção (Railway):** `https://pid-oportunidades-production.up.railway.app`
+- Use variável de ambiente no frontend para alternar entre URLs:
+  ```
+  NEXT_PUBLIC_API_URL=http://localhost:8000   # dev
+  NEXT_PUBLIC_API_URL=https://pid-oportunidades-production.up.railway.app  # prod
+  ```
 - Todos os endpoints retornam JSON com `Content-Type: application/json`
 - Erros retornam `{ "error": "mensagem" }` com status HTTP adequado
 
