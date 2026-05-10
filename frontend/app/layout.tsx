@@ -9,7 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "PID — Onde Investir?",
   description:
-    "Simulação frontend para identificar oportunidades preliminares de investimento em energia limpa em Roraima.",
+    "Plataforma inteligente de predicação do custo da descarbonização em Roraima",
 icons: {
     icon: "/assets/favicon-32x32.png",
     apple: "/assets/apple-touch-icon.png",
