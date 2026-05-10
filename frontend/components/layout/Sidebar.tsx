@@ -20,7 +20,7 @@ export function Sidebar() {
             className="flex items-center gap-md px-md py-sm rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary bg-surface-container-high font-body-md text-body-md"
           >
             <span className="material-symbols-outlined fill">dashboard</span>
-            Overview
+            Visão geral
           </Link>
         </li>
         <li>
@@ -29,7 +29,7 @@ export function Sidebar() {
             className="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md"
           >
             <span className="material-symbols-outlined">database</span>
-            PID Data
+            Dados PID
           </Link>
         </li>
         <li>
@@ -38,7 +38,7 @@ export function Sidebar() {
             className="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md"
           >
             <span className="material-symbols-outlined">rocket_launch</span>
-            Onde Investir?
+            Onde investir?
           </Link>
         </li>
         <li>
@@ -47,7 +47,7 @@ export function Sidebar() {
             className="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md"
           >
             <span className="material-symbols-outlined">analytics</span>
-            Reports
+            Relatórios
           </Link>
         </li>
         <li>
@@ -56,7 +56,7 @@ export function Sidebar() {
             className="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md"
           >
             <span className="material-symbols-outlined">cloud_done</span>
-            Data Sources
+            Fontes de dados
           </Link>
         </li>
         <li>
@@ -65,13 +65,13 @@ export function Sidebar() {
             className="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all font-body-md text-body-md"
           >
             <span className="material-symbols-outlined">help</span>
-            Help
+            Ajuda
           </Link>
         </li>
       </ul>
       <div className="px-lg mt-auto">
         <button className="w-full py-sm px-md bg-transparent border-2 border-primary text-primary rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">
-          Export Data
+          Exportar dados
         </button>
       </div>
     </nav>

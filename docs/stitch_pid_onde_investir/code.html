@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inteligência de Descarbonização - PID</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#738dbb",
+                        "primary-fixed": "#d6e3ff",
+                        "secondary-fixed-dim": "#ffb4a3",
+                        "primary": "#001029",
+                        "inverse-surface": "#2f3033",
+                        "inverse-on-surface": "#f1f0f4",
+                        "background": "#faf9fd",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#828f90",
+                        "tertiary": "#071313",
+                        "on-tertiary-fixed-variant": "#3c4949",
+                        "surface-container-low": "#f4f3f7",
+                        "outline-variant": "#c4c6d0",
+                        "on-secondary-container": "#fffbff",
+                        "primary-fixed-dim": "#adc7f8",
+                        "surface-dim": "#dad9dd",
+                        "on-surface": "#1a1b1f",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#111e1e",
+                        "on-background": "#1a1b1f",
+                        "outline": "#74777f",
+                        "on-secondary-fixed-variant": "#8b1a00",
+                        "surface-container-highest": "#e3e2e6",
+                        "secondary": "#b22400",
+                        "secondary-fixed": "#ffdad2",
+                        "surface-tint": "#455f8a",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d7e5e5",
+                        "tertiary-fixed-dim": "#bbc9c9",
+                        "primary-container": "#03254d",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-variant": "#e3e2e6",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#faf9fd",
+                        "tertiary-container": "#1b2828",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#adc7f8",
+                        "surface": "#faf9fd",
+                        "on-primary-fixed-variant": "#2c4771",
+                        "surface-container": "#eeedf1",
+                        "on-secondary-fixed": "#3d0600",
+                        "surface-container-high": "#e9e7ec",
+                        "secondary-container": "#de3002"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin": "32px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "unit": "4px",
+                        "xl": "40px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar Component -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-screen z-50 py-lg docked w-72 border-r border-outline-variant dark:border-outline flat no shadows bg-surface dark:bg-on-surface">
+<div class="px-margin mb-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-bold text-xl" data-alt="PID Logo Circular Symbol">P</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary">PID</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Plataforma Interativa de Descarbonização</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-4">
+<ul class="space-y-2">
+<!-- Active Navigation Item -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary bg-surface-container-lowest" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+</li>
+<!-- Inactive Navigation Items -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="font-label-md text-label-md">PID Data</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-label-md text-label-md">Onde Investir?</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">cloud_done</span>
+<span class="font-label-md text-label-md">Data Sources</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-lowest hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="px-margin mt-auto">
+<button class="w-full py-3 rounded-full border-2 border-primary text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+                Export Data
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-72 flex flex-col min-h-screen">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center w-full px-margin h-16 bg-surface dark:bg-on-surface border-b border-outline-variant dark:border-outline flat no shadows sticky top-0 z-40">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary hidden md:block">Decarbonization Intelligence</span>
+<nav class="hidden lg:flex gap-6">
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-md text-label-md" href="#">Regional Map</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary transition-colors font-label-md text-label-md" href="#">Policy Feed</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md hidden md:block">Contact Support</button>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">Invest Now</button>
+<div class="flex items-center gap-2 ml-4 border-l border-outline-variant pl-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-alt="User Profile">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 flex flex-col items-center justify-center p-margin max-w-4xl mx-auto w-full text-center">
+<h2 class="font-display-lg text-display-lg text-primary mb-6 max-w-3xl">Quanto custa descarbonizar uma região?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl">
+                Estime custo, tempo e oportunidades de investimento para acelerar a transição energética em estados, setores e regiões.
+            </p>
+<!-- Search/Simulation Pill -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-full p-2 pl-6 flex items-center w-full max-w-2xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col items-start flex-1 text-left">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">ESTADO</span>
+<span class="font-body-md text-body-md text-primary font-semibold">Roraima</span>
+</div>
+<div class="h-10 w-px bg-outline-variant mx-4"></div>
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-full font-label-md text-label-md hover:bg-secondary-container transition-colors whitespace-nowrap flex items-center gap-2">
+                    Simular descarbonização
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">info</span>
+                Primeiro caso disponível: Roraima — energia solar e substituição de geração fóssil.
+            </p>
+</div>
+</main>
+<!-- FAB / Copilot Trigger -->
+<button class="fixed bottom-margin right-margin w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</body></html>

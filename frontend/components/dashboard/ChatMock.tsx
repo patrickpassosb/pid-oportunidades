@@ -5,15 +5,16 @@ import { FormEvent, useState } from "react";
 import { Button } from "@/components/ui/Button";
 
 const suggestions = [
-  "Por que essa região tem score maior?",
-  "Quais são os principais riscos socioambientais?",
-  "Compare Boa Vista e Rorainópolis para uma usina de 5 MW.",
-  "Explique o payback estimado.",
-  "Gere um resumo executivo para investidores.",
+  "Quanto custaria descarbonizar Roraima?",
+  "Quais alavancas reduzem mais emissões?",
+  "Por que solar aparece como projeto prioritário?",
+  "Quanto tempo levaria para executar esse plano?",
+  "Quais regiões têm menor risco socioambiental?",
+  "Gere um resumo executivo para a Marina.",
 ];
 
 const mockAnswer =
-  "A região Boa Vista — Mucajaí apresenta melhor equilíbrio entre potencial solar, proximidade de infraestrutura elétrica e menor incidência de restrições críticas. O principal ponto de atenção é a validação fundiária e o custo de conexão.";
+  "A simulação indica que a descarbonização inicial de Roraima poderia ser estruturada em quatro alavancas: expansão solar, armazenamento, modernização da rede e eficiência energética. O investimento estimado é de R$ 420 milhões em 6 a 8 anos, com Boa Vista — Mucajaí como região prioritária para projetos solares preliminares.";
 
 type ChatMessage = {
   role: "user" | "assistant";
