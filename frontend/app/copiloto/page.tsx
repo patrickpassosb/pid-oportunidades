@@ -1,3 +1,6 @@
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 import { ChatMock } from "@/components/dashboard/ChatMock";
 import { AppShell } from "@/components/layout/AppShell";
 import { MapMock } from "@/components/map/MapMock";

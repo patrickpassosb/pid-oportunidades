@@ -1,3 +1,6 @@
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 import { RegionCard } from "@/components/dashboard/RegionCard";
 import { AppShell } from "@/components/layout/AppShell";
 import { LayerToggle } from "@/components/map/LayerToggle";

@@ -1,3 +1,6 @@
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 import { getRestrictionLayers } from "@/lib/api";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { DataQualityBadge } from "@/components/ui/DataQualityBadge";

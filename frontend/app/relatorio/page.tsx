@@ -1,6 +1,7 @@
 import { ReportPreview } from "@/components/dashboard/ReportPreview";
 import { AppShell } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/Button";
+import { PrintReportButton } from "./PrintReportButton";
 
 export default async function ReportPage() {
   return (
@@ -9,9 +10,7 @@ export default async function ReportPage() {
         <Button href="/mapa" variant="secondary">
           Voltar ao mapa
         </Button>
-        <Button disabled title="Geração de PDF em desenvolvimento" type="button">
-          Baixar PDF
-        </Button>
+        <PrintReportButton />
       </section>
       <ReportPreview />
     </AppShell>

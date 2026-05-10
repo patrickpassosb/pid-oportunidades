@@ -1578,3 +1578,101 @@ p {
     padding-right: 20px;
   }
 }
+
+@media print {
+  @page {
+    margin: 12mm;
+    size: A4;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    min-height: auto !important;
+  }
+
+  body {
+    color: var(--text);
+    display: block !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body > nav,
+  body > main > header,
+  body > button[aria-label="Abrir Copiloto PID"],
+  body > aside,
+  .report-page-actions {
+    display: none !important;
+  }
+
+  body > main,
+  .app-shell,
+  .app-shell__main {
+    display: block !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .report-preview {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    max-width: none;
+    overflow: visible;
+  }
+
+  .report-preview__header {
+    background: #ffffff;
+    break-inside: avoid;
+    color: var(--navy-dark);
+    grid-template-columns: 128px minmax(0, 1fr);
+    padding: 22px 24px;
+  }
+
+  .report-preview__header img {
+    border: 1px solid var(--border);
+    width: 120px;
+  }
+
+  .report-preview__header span {
+    color: var(--orange);
+  }
+
+  .report-preview__header h1 {
+    font-size: 1.55rem;
+  }
+
+  .report-preview__header p {
+    color: var(--muted);
+  }
+
+  .report-preview__metrics {
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    padding: 18px 0 4px;
+  }
+
+  .report-preview__sections {
+    padding: 8px 0 0;
+  }
+
+  .metric-card,
+  .report-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .metric-card {
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .report-section {
+    gap: 14px;
+    padding: 16px 0;
+  }
+}

@@ -1,0 +1,7 @@
+- [x] Tarefa 1: Correção de TypeScript (`frontend/app/regiao/[slug]/page.tsx`)
+- [x] Tarefa 2: Adição de Loading States (`simulacao`, `mapa`, `relatorio`)
+- [x] Tarefa 3: Melhoria no Static Generation (Build) (`lib/api.ts` e `.env.local`)
+- [x] Tarefa 4: Exportação de PDF (`relatorio`)
+- [ ] Tarefa 5: Simulação Interativa (Sliders em `/simulacao`)
+- [ ] Tarefa 6: Visualização de Dados (Gráficos)
+- [ ] Tarefa 7: Mapa Interativo (`leaflet`)

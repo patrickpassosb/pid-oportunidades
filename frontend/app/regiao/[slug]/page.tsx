@@ -5,6 +5,14 @@ import { MetricCard } from "@/components/ui/MetricCard";
 import { ScoreBadge } from "@/components/ui/ScoreBadge";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { getInvestmentRegions } from "@/lib/api";
+import { regions } from "@/data/regions";
+
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return regions.map((region) => ({ slug: region.slug }));
+}
 
 export default async function RegionDetailPage({
   params,

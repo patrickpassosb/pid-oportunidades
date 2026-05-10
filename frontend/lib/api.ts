@@ -16,11 +16,19 @@ const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 async function fetchJson<T>(path: string): Promise<T | null> {
+  const isDev = process.env.NODE_ENV === "development";
+  const isBuild = process.env.NEXT_PHASE === "phase-production-build";
+
   try {
     const res = await fetch(`${BASE_URL}${path}`, {
       headers: { Accept: "application/json" },
-      // Usa no-store em dev, mas permite cache em prod para build estático
-      cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
+      // Em dev: sem cache. Em build/prod: cache agressivo para SSG
+      cache: isDev ? "no-store" : "force-cache",
+      next: {
+        // Revalida a cada 1h em produção (ISR)
+        revalidate: isDev || isBuild ? false : 3600,
+        tags: [path],
+      },
     });
     if (!res.ok) {
       console.warn(`API Error ${res.status} on ${path} - Using fallback data`);
@@ -28,7 +36,11 @@ async function fetchJson<T>(path: string): Promise<T | null> {
     }
     return (await res.json()) as T;
   } catch (err) {
-    console.warn(`Network Error on ${path} - Using fallback data`);
+    if (isBuild) {
+      console.warn(`[BUILD] API unreachable on ${path} - Using fallback data`);
+    } else {
+      console.warn(`Network Error on ${path} - Using fallback data`);
+    }
     return null;
   }
 }
@@ -55,7 +67,7 @@ export async function getReportData(): Promise<ReportData | null> {
 
 export async function getDatasetsStatus(): Promise<DatasetsStatusResponse | null> {
   const data = await fetchJson<DatasetsStatusResponse>("/api/datasets/status");
-  return data ?? { status: "ok", last_update: new Date().toISOString(), datasets: [] };
+  return data ?? { sources: [] };
 }
 
 export async function getMethodology(): Promise<any | null> {

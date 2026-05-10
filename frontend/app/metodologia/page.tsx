@@ -1,3 +1,6 @@
+export const dynamic = "force-static";
+export const revalidate = 3600;
+
 import { AppShell } from "@/components/layout/AppShell";
 import { getMethodology } from "@/lib/api";
 import { ErrorState } from "@/components/ui/ErrorState";
