@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export function AppHeader() {
   return (
-    <>
-      {/* TopAppBar (Mobile) */}
-      <header className="bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16 md:hidden">
+    <header className="bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows w-full h-16 sticky z-40 transition-all flex items-center px-margin">
+      {/* Mobile-only part */}
+      <div className="flex md:hidden justify-between items-center w-full">
         <div className="flex items-center gap-sm">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -21,10 +21,10 @@ export function AppHeader() {
             account_circle
           </span>
         </div>
-      </header>
+      </div>
 
-      {/* TopAppBar (Web) */}
-      <header className="hidden md:flex bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows justify-between items-center w-full px-margin h-16 sticky z-40 transition-all">
+      {/* Desktop-only part */}
+      <div className="hidden md:flex justify-between items-center w-full">
         <div className="flex items-center">
           <span className="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary">
             Decarbonization Intelligence
@@ -79,7 +79,8 @@ export function AppHeader() {
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuATqax_Obs520fL3M4xR8YVjZwje8db8BumKVMGE9MAGzhlBwZT4aDVD29vW8stw9UZwA2pF83FSSeTNdDbvIhq68-Bct1Vm3zwz5kAOQ3QeXs4VM-Bijr54tB_hr1__I0lQ0ZgsMfM6Fd5OXDde5KCJJdIUafzQq_EGshhhBwOkv7j7rAQ9L2qs8-BHClIaGmy-9tAjnd9F34m8Ml0rS3f_eEs4uJubFs4loBjabGuFdP4H-If0SMYYPERghFZXh3BjXXKUwno92Nm"
           />
         </div>
-      </header>
-    </>
+      </div>
+    </header>
+
   );
 }
