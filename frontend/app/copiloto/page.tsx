@@ -7,7 +7,7 @@ import { featuredRegion } from "@/data/regions";
 
 export default function CopilotPage() {
   return (
-    <AppShell active="copiloto" summary="Copiloto PID">
+    <AppShell>
       <section className="page-heading">
         <span className="eyebrow">Inteligência analítica institucional</span>
         <h1>Copiloto PID</h1>

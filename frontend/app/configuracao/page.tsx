@@ -29,7 +29,7 @@ const sizes = ["1 MW", "5 MW", "10 MW", "30 MW"];
 
 export default function ConfigurationPage() {
   return (
-    <AppShell active="configuracao" summary="Etapa 1 de 2">
+    <AppShell>
       <section className="page-heading">
         <span className="eyebrow">Configure sua análise</span>
         <h1>Que tipo de projeto você quer analisar?</h1>

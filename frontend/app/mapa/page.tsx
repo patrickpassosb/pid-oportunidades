@@ -12,7 +12,7 @@ export default function MapPage() {
   const bestRegions = regions.slice(0, 3);
 
   return (
-    <AppShell active="mapa" summary="Solar fotovoltaica • 5 MW • Roraima">
+    <AppShell>
       <section className="page-heading page-heading--row">
         <div>
           <span className="eyebrow">Mapa de oportunidades</span>

@@ -6,7 +6,7 @@ import { formatInvestment, formatPayback } from "@/lib/format";
 
 export default function ComparisonPage() {
   return (
-    <AppShell active="comparativo" summary="Comparativo de regiões">
+    <AppShell>
       <section className="page-heading page-heading--row">
         <div>
           <span className="eyebrow">Priorização executiva</span>

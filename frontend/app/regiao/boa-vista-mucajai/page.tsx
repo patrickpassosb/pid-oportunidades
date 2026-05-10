@@ -7,7 +7,7 @@ import { formatInvestment, formatPayback } from "@/lib/format";
 
 export default function RegionDetailPage() {
   return (
-    <AppShell active="mapa" summary="Boa Vista — Mucajaí">
+    <AppShell>
       <section className="region-hero">
         <div>
           <span className="eyebrow">Análise da região selecionada</span>
