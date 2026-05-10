@@ -1,7 +1,17 @@
 import { getRestrictionLayers } from "@/lib/api";
+import { ErrorState } from "@/components/ui/ErrorState";
+import { DataQualityBadge } from "@/components/ui/DataQualityBadge";
 
 export default async function RestrictionsPage() {
   const data = await getRestrictionLayers();
+
+  if (!data) {
+    return (
+      <div className="max-w-4xl mx-auto pt-12">
+        <ErrorState message="Não foi possível carregar as restrições do backend." />
+      </div>
+    );
+  }
 
   return (
     <div className="p-margin flex-1 flex flex-col max-w-[1400px] mx-auto w-full">
@@ -23,7 +33,10 @@ export default async function RestrictionsPage() {
             className={`restriction-card restriction-card--${layer.severity}`}
             key={layer.id}
           >
-            <h2>{layer.name}</h2>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="mb-0">{layer.name}</h2>
+              <DataQualityBadge quality={layer.dataQuality} sourceName={layer.source} />
+            </div>
             <p>{layer.description}</p>
           </div>
         ))}

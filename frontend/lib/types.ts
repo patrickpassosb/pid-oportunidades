@@ -1,3 +1,13 @@
+export type DataQuality = "real" | "estimated" | "fallback" | "partial";
+
+export type DataSource = {
+  name: string;
+  use: string;
+  dataQuality: DataQuality;
+  url?: string;
+  tables?: string[];
+};
+
 export type DecarbonizationLever = {
   id: string;
   name: string;
@@ -25,6 +35,8 @@ export type DecarbonizationScenario = {
   avoidedEmissionsFormatted: string;
   priorityProjects: string[];
   levers: DecarbonizationLever[];
+  dataQuality?: Record<string, DataQuality>;
+  sources?: DataSource[];
 };
 
 export type InvestmentRegion = {
@@ -39,6 +51,8 @@ export type InvestmentRegion = {
   contributionToPlan: "Alta" | "Média" | "Baixa";
   recommendation: string;
   explanation: string;
+  scoreBreakdown?: Record<string, number>;
+  dataQuality?: Record<string, DataQuality>;
 };
 
 export type InvestmentRegionsResponse = {
@@ -53,10 +67,15 @@ export type RestrictionLayer = {
   type: string;
   severity: "critical" | "attention" | "info";
   description: string;
+  dataQuality?: DataQuality;
+  source?: string;
+  count?: number;
 };
 
 export type RestrictionLayersResponse = {
   state: string;
+  disclaimer?: string;
+  dataQuality?: DataQuality;
   layers: RestrictionLayer[];
 };
 
@@ -95,8 +114,24 @@ export type ReportData = {
   timelineMaxYears: number;
   avoidedEmissions: number;
   avoidedEmissionsFormatted: string;
-  priorityRegion: ReportPriorityRegion;
+  priorityRegion: ReportPriorityRegion | null;
   levers: ReportLever[];
   risks: ReportRisk[];
   nextSteps: string[];
+  dataQuality?: Record<string, DataQuality>;
+  sources?: DataSource[];
+};
+
+export type DatasetStatus = {
+  name: string;
+  status: "connected" | "stale" | "not_ingested";
+  dataQuality: "real" | "unavailable";
+  use: string;
+  lastUpdated: string | null;
+  localCache: boolean;
+  ageHours: number | null;
+};
+
+export type DatasetsStatusResponse = {
+  sources: DatasetStatus[];
 };

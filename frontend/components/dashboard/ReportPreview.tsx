@@ -1,8 +1,18 @@
 import { MetricCard } from "@/components/ui/MetricCard";
 import { getReportData } from "@/lib/api";
+import { ErrorState } from "@/components/ui/ErrorState";
+import { DataQualityBadge } from "@/components/ui/DataQualityBadge";
 
 export async function ReportPreview() {
   const report = await getReportData();
+
+  if (!report) {
+    return (
+      <div className="max-w-4xl mx-auto pt-12">
+        <ErrorState message="Não foi possível gerar o relatório executivo. Tente novamente mais tarde." />
+      </div>
+    );
+  }
 
   return (
     <article className="report-preview">
@@ -11,7 +21,10 @@ export async function ReportPreview() {
         <img alt="PID" src="/assets/pid-logo.svg" />
         <div>
           <span>Plano Preliminar de Descarbonização</span>
-          <h1>{report.title} — Roraima</h1>
+          <div className="flex items-center gap-3 mb-2 flex-wrap">
+            <h1 className="mb-0">{report.title} — Roraima</h1>
+            <DataQualityBadge quality={report.dataQuality?.overallConfidence === 'high' ? 'real' : 'estimated'} />
+          </div>
           <p>
             Estimativa indicativa de custo, tempo, alavancas e regiões
             prioritárias para acelerar a transição energética no estado.
@@ -41,7 +54,7 @@ export async function ReportPreview() {
         <MetricCard
           label="Região prioritária"
           tone="neutral"
-          value={report.priorityRegion.name}
+          value={report.priorityRegion?.name || "Indeterminada"}
         />
       </section>
 
@@ -83,9 +96,9 @@ export async function ReportPreview() {
           <div>
             <h2>Projetos recomendados</h2>
             <p>
-              A região prioritária é {report.priorityRegion.name}, com score de{" "}
-              {report.priorityRegion.score}/100. Recomendação: {" "}
-              {report.priorityRegion.recommendation}.
+              A região prioritária é {report.priorityRegion?.name || "N/A"}, com score de{" "}
+              {report.priorityRegion?.score || 0}/100. Recomendação: {" "}
+              {report.priorityRegion?.recommendation || "N/A"}.
             </p>
           </div>
         </section>
@@ -95,7 +108,7 @@ export async function ReportPreview() {
           <div>
             <h2>Regiões prioritárias</h2>
             <p>
-              Boa Vista — Mucajaí foi identificada como região prioritária
+              {report.priorityRegion?.name || "A região"} foi identificada como região prioritária
               preliminar para projetos solares, considerando potencial
               indicativo, infraestrutura e sensibilidade socioambiental
               aparente.

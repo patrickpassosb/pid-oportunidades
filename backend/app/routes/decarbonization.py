@@ -5,6 +5,7 @@ from app.services.decarbonization_service import (
     get_regions,
     get_restrictions,
     get_report,
+    get_methodology,
     is_supported_state,
 )
 
@@ -49,3 +50,9 @@ def report(state: str):
     """Retorna os dados do relatório executivo."""
     _validate_state(state)
     return get_report(state)
+
+
+@router.get("/methodology")
+def methodology():
+    """Retorna a metodologia utilizada pelo sistema."""
+    return get_methodology()

@@ -6,9 +6,22 @@ import { Button } from "@/components/ui/Button";
 import { MetricCard } from "@/components/ui/MetricCard";
 import { analysisLayers } from "@/data/layers";
 import { getInvestmentRegions } from "@/lib/api";
+import { ErrorState } from "@/components/ui/ErrorState";
+import { DataQualityBadge } from "@/components/ui/DataQualityBadge";
 
 export default async function MapPage() {
   const data = await getInvestmentRegions();
+  
+  if (!data || !data.regions) {
+    return (
+      <AppShell>
+        <div className="max-w-4xl mx-auto pt-12">
+          <ErrorState message="Não foi possível carregar as regiões de investimento do backend." />
+        </div>
+      </AppShell>
+    );
+  }
+
   const bestRegions = data.regions.slice(0, 3);
   const featuredRegion = data.regions[0];
 
@@ -17,7 +30,10 @@ export default async function MapPage() {
       <section className="page-heading page-heading--row">
         <div>
           <span className="eyebrow">Mapa de oportunidades</span>
-          <h1>Onde investir para executar esse plano?</h1>
+          <div className="flex items-center gap-3 mb-2 flex-wrap">
+            <h1 className="mb-0">Onde investir para executar esse plano?</h1>
+            <DataQualityBadge quality={data.regions[0]?.dataQuality?.demand} />
+          </div>
           <p>
             Regiões com maior potencial preliminar para projetos solares que
             contribuem para a descarbonização de Roraima.

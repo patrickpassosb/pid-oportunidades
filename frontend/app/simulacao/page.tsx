@@ -2,15 +2,30 @@ import { AppShell } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/Button";
 import { MetricCard } from "@/components/ui/MetricCard";
 import { getDecarbonizationScenario } from "@/lib/api";
+import { ErrorState } from "@/components/ui/ErrorState";
+import { DataQualityBadge } from "@/components/ui/DataQualityBadge";
 
 export default async function SimulationPage() {
   const scenario = await getDecarbonizationScenario();
+
+  if (!scenario) {
+    return (
+      <AppShell>
+        <div className="max-w-4xl mx-auto pt-12">
+          <ErrorState message="Não foi possível carregar o cenário de descarbonização do backend. Verifique se o servidor está rodando." />
+        </div>
+      </AppShell>
+    );
+  }
 
   return (
     <AppShell>
       <section className="page-heading">
         <span className="eyebrow">Simulação preliminar</span>
-        <h1>Roraima — Simulação preliminar de descarbonização</h1>
+        <div className="flex items-center gap-3 flex-wrap mb-2">
+          <h1 className="mb-0">Roraima — Simulação preliminar de descarbonização</h1>
+          <DataQualityBadge quality={scenario.dataQuality?.overallConfidence === 'high' ? 'real' : 'estimated'} />
+        </div>
         <p>
           Estimativa indicativa de custo, tempo e projetos prioritários para
           reduzir emissões e acelerar a transição energética no estado.

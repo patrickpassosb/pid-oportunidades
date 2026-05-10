@@ -4,9 +4,20 @@ import { MapMock } from "@/components/map/MapMock";
 import { Button } from "@/components/ui/Button";
 import { MetricCard } from "@/components/ui/MetricCard";
 import { getDecarbonizationScenario } from "@/lib/api";
+import { ErrorState } from "@/components/ui/ErrorState";
 
 export default async function CopilotPage() {
   const scenario = await getDecarbonizationScenario();
+
+  if (!scenario) {
+    return (
+      <AppShell>
+        <div className="max-w-4xl mx-auto pt-12">
+          <ErrorState message="Não foi possível carregar os dados para o Copiloto." />
+        </div>
+      </AppShell>
+    );
+  }
 
   return (
     <AppShell>

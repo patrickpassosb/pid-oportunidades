@@ -2,9 +2,20 @@ import { AppShell } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/Button";
 import { RiskBadge } from "@/components/ui/RiskBadge";
 import { getInvestmentRegions } from "@/lib/api";
+import { ErrorState } from "@/components/ui/ErrorState";
 
 export default async function ComparisonPage() {
   const data = await getInvestmentRegions();
+
+  if (!data || !data.regions) {
+    return (
+      <AppShell>
+        <div className="max-w-4xl mx-auto pt-12">
+          <ErrorState message="Não foi possível carregar as regiões para comparação." />
+        </div>
+      </AppShell>
+    );
+  }
   const featuredRegion = data.regions[0];
 
   return (
