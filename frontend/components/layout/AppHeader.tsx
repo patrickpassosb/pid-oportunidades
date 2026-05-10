@@ -6,12 +6,11 @@ export function AppHeader() {
       {/* TopAppBar (Mobile) */}
       <header className="bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin h-16 md:hidden">
         <div className="flex items-center gap-sm">
-          <div
-            aria-label="PID Logo"
-            className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md font-extrabold"
-          >
-            P
-          </div>
+          <img
+            src="/assets/pid-icon.svg"
+            alt="PID Logo"
+            className="w-8 h-8"
+          />
         </div>
         <div className="flex items-center gap-md">
           <span className="material-symbols-outlined text-on-surface-variant">
@@ -24,7 +23,7 @@ export function AppHeader() {
       </header>
 
       {/* TopAppBar (Web) */}
-      <header className="hidden md:flex bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows justify-between items-center w-full px-margin h-16 sticky z-40 ml-0 md:ml-72 transition-all">
+      <header className="hidden md:flex bg-surface dark:bg-on-surface docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows justify-between items-center w-full px-margin h-16 sticky z-40 transition-all">
         <div className="flex items-center">
           <span className="font-headline-md text-headline-md font-black tracking-tight text-primary dark:text-inverse-primary">
             Decarbonization Intelligence

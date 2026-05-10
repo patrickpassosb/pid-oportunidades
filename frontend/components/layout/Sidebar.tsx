@@ -5,21 +5,12 @@ export function Sidebar() {
   return (
     <nav className="bg-surface dark:bg-on-surface docked h-full w-72 border-r border-outline-variant dark:border-outline flat no shadows flex flex-col fixed left-0 top-0 h-screen z-50 py-lg hidden md:flex">
       <div className="px-lg mb-8">
-        <div className="flex items-center gap-sm">
-          <div
-            aria-label="PID Logo Circular Symbol"
-            className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-md text-headline-md font-extrabold"
-          >
-            P
-          </div>
-          <div>
-            <h1 className="font-headline-md text-headline-md font-extrabold text-primary dark:text-inverse-primary">
-              PID
-            </h1>
-            <p className="font-label-sm text-label-sm text-on-surface-variant">
-              Plataforma Interativa de Descarbonização
-            </p>
-          </div>
+        <div className="flex items-center">
+          <img
+            src="/assets/pid-logo.svg"
+            alt="PID Logo"
+            className="h-15 w-auto"
+          />
         </div>
       </div>
       <ul className="flex flex-col gap-unit px-sm flex-grow">
